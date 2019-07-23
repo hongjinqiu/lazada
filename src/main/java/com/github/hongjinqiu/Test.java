@@ -156,7 +156,7 @@ public class Test {
         */
     }
 
-    public static void main(String[] args) throws Exception {
+    /*public static void main(String[] args) throws Exception {
 //        getAccessToken("0_109861_vhdp0eMi96odex5dLPPH3SAk4345");
 //        getOrderTest("50000400125bjXwUpCdwzIxEjlQxmseadIuDj134bcb9atasrCfbAv8NPj8Xu");
 //        getOrderItemsTest("50000400125bjXwUpCdwzIxEjlQxmseadIuDj134bcb9atasrCfbAv8NPj8Xu");
@@ -164,5 +164,5 @@ public class Test {
 //        dateTest();
 //        pdfTest();
         testScript();
-    }
+    }*/
 }
