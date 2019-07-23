@@ -1,0 +1,35 @@
+.ui-tips {
+    padding: 10px 30px 10px 36px ;
+    font-size: 14px;
+	line-height: 20px;
+	color: #323c4a;
+    background: #fff;
+    border: 0 none;
+    border-radius: 3px;
+	box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.3);
+}
+.ui-tips i {
+    position: absolute;
+	left: 14px;
+	top: 12px;
+    background: url("../../../../../images/acct/sprite/ui-vop.png");
+}
+
+.ui-tips-success { color: #029300; }
+.ui-tips-success i { background-position: 1px -100px; }
+.ui-tips-warning { color: #ff9c00; }
+.ui-tips-warning i { background-position: -18px -100px; }
+.ui-tips-error  { color: #d60000; }
+.ui-tips-error i { background-position: -36px -100px; }
+.ui-tips .close {
+    width: 10px;
+    height: 10px;
+    background: url("../../../../../images/acct/sprite/close-btn.png") 0 0 no-repeat;
+}
+.ui-tips .close:hover {
+    background-position: 0 -12px;
+}
+
+
+
+

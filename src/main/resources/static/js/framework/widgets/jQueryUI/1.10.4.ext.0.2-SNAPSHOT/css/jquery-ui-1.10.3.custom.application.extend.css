@@ -1,0 +1,366 @@
+/*
+    作者：马来云会计
+    时间：2015-11-18
+    描述: 扩展样式
+*/
+
+
+.ui-datepicker {
+    padding: 0;
+}
+.ui-datepicker .ui-datepicker-title select {
+    font-size: 1em;
+    margin: 1px 2px;
+    border: solid 1px #ccc
+}
+
+/*
+ * change color style 20140617 liu EMD
+ */
+/*
+ * change color style 20140617 liu
+ *
+ */
+/*.ui-datepicker td span,
+.ui-datepicker td a {
+	display: block;
+	padding: .2em;
+	text-align: right;
+	text-decoration: none;
+}*/
+.ui-datepicker td {
+    border: 1px solid #cccfd3;
+    padding: 0px;
+}
+
+.ui-datepicker td span,
+.ui-datepicker td a {
+    display: block;
+    padding: .2em;
+    color: #1C94C4;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 0;
+
+}
+
+.ui-datepicker.ui-widget-content .ui-state-default {
+    border: 1px solid #fff;
+    background: none;
+    font-weight: bold;
+    color: #555555;
+}
+
+.ui-datepicker.ui-widget-content .ui-datepicker-calendar .ui-state-hover,
+.ui-datepicker.ui-widget-content .ui-datepicker-calendar .ui-state-focus {
+    color: #fff;
+    text-underline: none;
+    border: 1px solid #21accf;
+    background: none #21accf;
+}
+.ui-datepicker.ui-widget-content .ui-datepicker-calendar .ui-state-hover a:hover,
+.ui-datepicker.ui-widget-content .ui-datepicker-calendar .ui-state-focus a:hover { text-underline: none; }
+/*
+ * change color style 20140617 liu
+ * END
+ */
+/*
+ * change color style 20140617 liu
+ *
+.ui-widget-content {
+	border: 1px solid #aaaaaa;
+	background: #ffffff url(images/jqueryui_images/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x;
+	color: #222222;
+}
+ */
+.ui-widget-content {
+    border-radius: 3px;
+    border: 1px solid #D3D3D3;
+    background: #ffffff url(images/jqueryui_images/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x;
+    color: #222222;
+}
+
+/*  change color style 20140617 liu
+*	END
+*/
+
+/*
+*change color style 20140617 liu
+*
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus {
+	border: 0px solid #999999;
+	font-weight: normal;
+	color: #212121;
+}*/
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus {
+
+    font-weight: normal;
+    color: #212121;
+}
+
+/*
+*change color style 20140617 liu
+*END
+*/
+
+/*
+ * change color style 20140617 liu
+ *
+ */
+.ui-icon,
+.ui-widget-content .ui-icon {
+    background-image: url(images/jqueryui_images/ui-icons_222222_256x240.png);
+}
+
+.ui-widget-header .ui-icon {
+    background-image: url(images/jqueryui_images/ui-icons_222222_256x240.png);
+}
+
+.ui-datepicker .ui-icon {
+    background-image: url(images/jqueryui_images/ui-icons_ffffff_256x240.png);
+}
+
+.ui-datepicker .ui-widget-header .ui-icon {
+    background-image: url(images/jqueryui_images/ui-icons_ffffff_256x240.png);
+}
+
+.ui-datepicker .ui-datepicker-header {
+    /*background: url(images/jqueryui_images/ui-bg_gloss-wave_35_f6a828_500x100.png) repeat-x left top;*/
+    background: #21accf;
+    border: 1px solid #21accf;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    color: #fff;
+
+}
+
+.ui-datepicker .ui-state-hover .ui-icon,
+.ui-datepicker .ui-state-focus .ui-icon {
+    background-image: url(images/jqueryui_images/ui-icons_454545_256x240.png);
+}
+
+.ui-datepicker table {
+    font-size: 11px;
+    margin: 0 0 0 0;
+}
+
+.ui-datepicker.ui-widget-content .ui-state-active,
+.ui-datepicker.ui-widget-header .ui-state-active {
+    color: #fff;
+    border: solid 1px #21accf;
+    background: none #21accf;
+}
+
+/*
+ * change color style 20140617 liu
+ *END
+ */
+
+/* 2014-03-20 wmh  liu 20140613 修改表格和分页字体 */
+.ui-state-hover td { background: none #F1F1F1;}
+.ui-state-hover .ui-icon-seek-next { overflow: hidden; }
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+    border: 1px solid #ececec;
+    background: #f1f1f1;
+    font-weight: normal;
+    color: #555555;
+}
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+    border: solid 1px #dee1e3;
+    background: #f8f8f8;
+}
+.ui-state-highlightCustom,
+.ui-widget-content .ui-state-highlightCustom,
+.ui-widget-header .ui-state-highlightCustom{
+    background: #fdc144;
+    border-color: #f0b700;
+}
+.ui-widget-content .ui-state-highlightCustom.ui-state-hover td{
+    background: #fdc144;
+    border-color: #f0b700;
+}
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active {
+    border: 0px solid #999999;
+    font-weight: normal;
+    color: #212121;
+}
+
+/** 设置单元格选中 */
+.ui-state-hover td { background: #e4efc9; }
+.ui-widget-content { border: 1px solid #ececec; }
+.ui-jqgrid tr.jqgrow td { padding: 2px 4px 2px 4px; }
+.ui-widget-content a,
+.ui-state-highlight a,
+.ui-widget-content .ui-state-highlight a,
+.ui-widget-header .ui-state-highlight a {
+    text-decoration: none;
+    color: #21accf;
+}
+.ui-widget-content a:hover,
+.ui-state-highlight a:hover,
+.ui-widget-content .ui-state-highlight a:hover,
+.ui-widget-header .ui-state-highlight a:hover {
+    text-decoration: underline;
+    color: #21accf;
+}
+.ui-datepicker .ui-datepicker-buttonpane {
+    margin: 0 0 0 0;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    background: none;
+}
+.ui-widget input,
+.ui-widget select,
+.ui-widget textarea,
+.ui-widget button {
+    font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled {
+    opacity: .7;
+    filter: Alpha(Opacity=70);
+}
+.loading.ui-state-active { background: none; }
+
+
+
+
+
+/** datepicker */
+.ui-timepicker-div { padding: 0 10px; }
+.ui-timepicker-div .ui-slider-handle.ui-state-default {
+    background-color: #21accf;
+    border: 1px solid  #21accf;
+    border-radius: 3px;
+}
+.ui-timepicker-div .ui_tpicker_minute,
+.ui-timepicker-div .ui_tpicker_hour { margin-top: 3px; }
+.ui-slider {
+    position: relative;
+    text-align: left
+}
+
+.ui-slider .ui-slider-handle {
+    position: absolute;
+    z-index: 2;
+    width: 1.0em;
+    height: 1.0em;
+    cursor: default;
+    -ms-touch-action: none;
+    touch-action: none
+}
+
+.ui-slider .ui-slider-range {
+    position: absolute;
+    z-index: 1;
+    font-size: .7em;
+    display: block;
+    border: 0;
+    background-position: 0 0
+}
+
+.ui-slider.ui-state-disabled .ui-slider-handle,.ui-slider.ui-state-disabled .ui-slider-range {
+    filter: inherit
+}
+
+.ui-slider-horizontal {
+    height: .8em
+}
+
+.ui-slider-horizontal .ui-slider-handle {
+    top: -.2em;
+    margin-left: -.6em
+}
+
+.ui-slider-horizontal .ui-slider-range {
+    top: 0;
+    height: 100%
+}
+
+.ui-slider-horizontal .ui-slider-range-min {
+    left: 0
+}
+
+.ui-slider-horizontal .ui-slider-range-max {
+    right: 0
+}
+
+.ui-slider-vertical {
+    width: .8em;
+    height: 100px
+}
+
+.ui-slider-vertical .ui-slider-handle {
+    left: -.3em;
+    margin-left: 0;
+    margin-bottom: -.6em
+}
+
+.ui-slider-vertical .ui-slider-range {
+    left: 0;
+    width: 100%
+}
+
+.ui-slider-vertical .ui-slider-range-min {
+    bottom: 0
+}
+
+.ui-slider-vertical .ui-slider-range-max {
+    top: 0
+}
+
+/* accordion  */
+.ui-accordion .ui-accordion-header {
+    margin-top: 20px;
+    padding: 0 0 0 20px;
+    height: 48px;
+    line-height: 48px;
+    font-size: 12px;
+    color: #333;
+    font-weight: bold;
+    border: 1px solid #dedede;
+}
+
+.ui-accordion .ui-accordion-header .ui-accordion-header-icon {
+    left: auto;
+    right: 20px;
+    width: 10px;
+    height: 14px;
+    background: url("images/extend/ui-icons-extend.png") no-repeat;
+}
+
+.ui-accordion .ui-accordion-header .ui-icon-triangle-1-s {
+    background-position: -1px -2px;
+}
+
+.ui-accordion .ui-accordion-header .ui-icon-triangle-1-e {
+    background-position: -15px -2px;
+}
+
+.ui-accordion-content {
+    font-size: 12px;
+    color: #787878;
+    border: 1px solid #dedede;
+    border-radius: 0px;
+}
+
+.ui-accordion-content input {
+    font-size: 12px;
+    line-height: normal;
+}

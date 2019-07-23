@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>首页</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11;IE=10;IE=9;IE=8;IE=7;IE=EDGE">
+    <link rel="stylesheet" type="text/css" th:href="@{/js/lib/jquery-easyui-1.6.7/themes/default/easyui.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/js/lib/jquery-easyui-1.6.7/themes/icon.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/base.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/style.css}">
+    <!--<script src="assets/js/jquery-1.11.1.min.js"></script>-->
+    <script type="text/javascript" th:src="@{/js/lib/v1.11.0-rc1-ext0.1/jquery.all.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/lib/jquery-easyui-1.6.7/jquery.easyui.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/lib/1.6.0-ext0.1/underscore.js}"></script>
+    <script type="text/javascript" th:src="@{/js/lib/1.6.0-ext0.1/underscore-application-ext.js}"></script>
+    <script type="text/javascript" th:src="@{/assets/js/waves.js}"></script>
+    <script type="text/javascript" th:src="@{/js/common.js}"></script>
+    <script type="text/javascript" th:src="@{/js/commonDialog.js}"></script>
+    <script type="text/javascript" th:src="@{/js/index.js?20190213_1207}"></script>
+    <style type="text/css">
+        html,
+        body {
+            height: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+    <script type="text/javascript">
+        var contextPath='[[${#httpServletRequest.getContextPath()}]]';
+    </script>
+    <style type="text/css">
+        .flex{display:-webkit-flex;display:flex;flex-flow:row;}
+        .flex-1{flex:1;}
+        .print-conf .ptitle{color:#333;text-align:center;line-height:30px;margin-bottom:3px}
+        .print-list+.print-list{margin-top:15px;}
+        .print-conf .template-con{text-align:center;}
+        .print-conf .template-con li{margin:5px 16px 10px 5px;float:left;display:inline-block;cursor:pointer;min-width:66px;max-height:150px;vertical-align:top;}
+        /* 66 * 84*/
+        /* .print-conf .template-con li .pic{    margin: 0 auto;border:1px solid #d6d6d6;width:55px;height:70px;} */
+        .print-conf .template-con li .pic{    margin: 0 auto;border:1px solid #d6d6d6;width:57px;height:72px;}
+        .print-conf .template-con li img{width:55px;height:70px;}
+        .print-conf .template-con li p{
+            word-break:break-all;margin-top:8px;
+            min-height: 18px;
+            font-size: 12px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow:    ellipsis;    /* IE, Safari (WebKit) */
+        }
+        .print-conf .template-con li.active .pic,.print-conf .template-con li:hover .pic{border-color:#56bfc0}
+        .print-conf .template-con li.active,.print-conf .template-con li:hover{color:#56bfc0}
+        .print-conf .template-con li.col-20off {
+            width: 20%;
+            margin: 5px 0 10px 0;
+        }
+        .btn-back,.more a{
+            color: #60caf1;
+            text-decoration: none;
+        }
+        .btn-back:hover, .more a:hover {
+            text-decoration: underline;
+        }
+        .nopaddingTB.artDialog-body{
+            padding-top: 0px;
+            padding-bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+<div class="page-center">
+    <!-- header -->
+    <div class="header" th:insert="~{navigation :: headBar}"></div>
+    <!-- page-body -->
+    <div class="wrapper">
+        <div class="main">
+            <!-- 企业列表 -->
+            <!--
+            <div class="comt-top clearfix">
+                <div class="comt-title">Order List</div>
+            </div>
+            -->
+            <div class="comt-tip comt-content">
+                <div class="top-search has-border clearfix mb10">
+                    <div class="fl">
+                        <input type="text" placeholder="Status" name="status" id="status" data-options="panelHeight:'auto'" />
+                        <input type="text" placeholder="Start Date" name="created_after" id="created_after" />
+                        <input type="text" placeholder="End Date" name="created_before" id="created_before" />
+                    </div>
+                    <div class="fr">
+                        <a href="javascript:getCorpList()" class="text-primary mr10">Search</a>
+                        <!--
+                        <a href="javascript:exportCorpList()" class="btn btn-primary waves-effect waves-light">导出</a>
+                        <a href="javascript:stopTaxDeclareStatus()" class="btn btn-primary waves-effect waves-light">停止</a>
+                        <a href="javascript:startTaxDeclareStatus()" class="btn btn-primary waves-effect waves-light" title="不勾选代表全部">启动报税</a>
+                        -->
+                    </div>
+                </div>
+                <div class="con-tab">
+                    <table id="dg"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="testTemplate" type="text/template">
+    <div class="ptitle" style="text-align:left; border-bottom: 1px solid #cccccc;"><strong>System Default</strong></div>
+    <div class="template-con clearfix">
+        <ul class="">
+            [% if (presetTemplates && presetTemplates.length > 0) { %]
+            [% for (var i = 0; i < presetTemplates.length; i++) { %]
+            [% var cls = ""; %]
+            [% if (i == 0) {cls = "active";} %]
+            <li class="[%=cls%] col-20off" id="[%=presetTemplates[i].id%]" title="[%=presetTemplates[i].name%]">&lt;!&ndash; standardTemplate &ndash;&gt;
+                <div class="pic"><img src="${staticContextPath}/static/assets/images/acct/temp/standard.jpg"></div>
+                <p>[%=presetTemplates[i].name%]</p>
+            </li>
+            [% } %]
+            [% } %]
+        </ul>
+    </div>
+</script>
+<script id="corpCustomPrintTemplate" type="text/template">
+    <div class="print-conf clearfix">
+        <div class="print-list" style="height: 400px; overflow:auto;">
+            <!--  -->
+            <div class="ptitle" style="text-align:left; border-bottom: 1px solid #cccccc;"><strong>User Design</strong></div>
+            <div class="template-con clearfix">
+                <ul class="">
+                    [% if (corpTemplates && corpTemplates.length > 0) { %]
+                    [% for (var i = 0; i < corpTemplates.length; i++) { %]
+                    [%
+                        var cls = "col-20off";
+                        if (i == 0) {
+                            cls = "col-20off active";
+                        }
+                    %]
+                    <li id="[%=corpTemplates[i].id%]" class="[%= cls %]" title="[%=corpTemplates[i].templateName%]"><!-- standardTemplate -->
+                        <div class="pic">
+                            <img th:src="@{/assets/images/standard.jpg}">
+                        </div>
+                        <p>[%=corpTemplates[i].templateName%]</p>
+                    </li>
+                    [% } %]
+                    [% } %]
+                </ul>
+            </div>
+        </div>
+        <div class="tr" style="margin-top: 10px;">
+            <a class="btn-back text-muted decimalSetting ml10" href="javascript:moreTemplate()">More Templates</a>
+        </div>
+    </div>
+</script>
+<!--
+<form name="exportForm" th:action="@{/corpList/exportCorpList.json}" method="post" target="_blank">
+    <input type="hidden" name="name" value="" />
+    <input type="hidden" name="taxType" value="" />
+    <input type="hidden" name="reportStatus" value="" />
+    <input type="hidden" name="createM" value="" />
+</form>
+-->
+</body>
+
+</html>

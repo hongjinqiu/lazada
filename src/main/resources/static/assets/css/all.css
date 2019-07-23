@@ -1,0 +1,546 @@
+/*
+    作者：马来云会计
+    时间：2015-10-29
+    描述:reset样式
+*/
+.h4 {
+    color: #333;
+    font-weight: bold;
+}
+.text-right { text-align: right;  }
+.inp {
+    padding: 2px 5px;
+    width: 100%;
+    font-size: 12px;
+    line-height: 16px;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #e6e6e6;
+    border-radius: 1px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+}
+
+.input-lg { width: 150px; }
+.input-royal { width: 186px; }
+
+.sj-search-content .drop-box {
+    padding: 10px 20px 10px 0;
+}
+
+/* 表格展开框  */
+.newbox {
+    padding: 20px;
+    text-align: left;
+    background-color: #fff;
+}
+/* tip */
+.tip-box {
+    position: relative;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+}
+.tip-menu {
+    position: absolute;
+    top: -3px;
+    left: 23px;
+    display: none;
+    padding: 3px 12px;
+    white-space: nowrap;
+    background-color: #ffebea;
+    border: 1px solid #ffb1ab;
+}
+.tip-menu:before,
+.tip-menu:after {
+    content: "";
+    position: absolute;
+    left: -9px;
+    top: 7px;
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-right-color: #ffebea;
+}
+.tip-menu:before {
+    left: -11px;
+    top: 7px;
+    border-right-color: #ffb1ab;
+}
+.tip-box:hover .tip-menu{ display: block; }
+
+/* service-area */
+.service-area { border: 1px solid #dedede; }
+.service-area .list-group { padding: 20px 8px 10px; }
+.personnel-setting { padding: 0 20px; }
+
+/* emp-mgat */
+.emp-mgat { 
+	border: 1px solid #dedede;
+	overflow:hidden;
+}
+.emp-mgat .box { padding: 20px; }
+.relevant-dept { border: 1px solid #dedede; }
+.relevant-dept .list-group { padding: 20px 0 0; }
+.basic-info .item {
+    margin-bottom: 20px;
+    border: 1px solid #dedede;
+}
+.basic-info .list-group,
+.tab-box .list-group { padding: 20px 0 10px 20px; }
+.basic-info .item-bank .icon-box {
+    display: inline-block;
+    margin-top: 6px;
+    padding-left: 10px;
+}
+.basic-info .item-logo-con { padding: 20px; }
+.basic-info .item-logo-con .bg-group {
+    padding: 20px 0 0 32px;
+    height: 150px;
+    line-height: 16px;
+    color: #fff;
+    background: #8ac18c url("../images/acct/sprite/cpy-logo.png") top right no-repeat;
+}
+.basic-info .item-logo-con .tit {
+    font-size: 18px;
+    line-height: 30px;
+}
+.basic-info .item-logo-con .btn {
+    margin: 7px 0 17px 0;
+    width: 114px;
+    height: 34px;
+    line-height: 24px;
+    color: #333;
+    box-shadow: 0 2px 2px rgba(0,0,0,.4);
+}
+/* contract */
+.contract {
+    padding: 20px;
+    background-color: #fafafa;
+    border: 1px solid #dedede;
+}
+.contract-hd .inp {
+    margin: 0 5px;
+    width: 225px;
+    vertical-align: middle;
+}
+.contract .btn-success { font-size: 12px; }
+.contract .btn-success span { font-size: 16px; }
+.contract-tit {
+    margin-top: 10px;
+    line-height: 30px;
+}
+
+/* 用户 */
+.user-mgmt { border: 1px solid #dedede; }
+.user-mgmt .list-group { padding: 5px 20px 5px 0;}
+
+/* 角色设置 */
+.role-setting { border: 1px solid #dedede; }
+.role-setting .list-group { padding: 5px 20px; }
+
+/* 权限设置  */
+.perms-allocate { border: 1px solid #dedede; }
+
+/* 仿树插件样式，调好插件样式后可删除 */
+.check-box-end{
+	display:block;
+	overflow:hidden;
+}
+.check-box-end .option-text{
+	padding-left:15px;
+	background:url(../images/acct/sprite/form.png) no-repeat 5px -486px;
+}
+.check-box-end .cur{
+	background-position:-8px -393px;
+}
+.check-box-list{
+	display:none;
+	padding:0 0 5px 30px;
+}
+.check-box-list li{
+	padding-top:5px;
+}
+/* end 仿树插件样式，调好插件样式后可删除 */
+
+/* sys-setting */
+.sys-setting {
+    padding: 10px 20px;
+    border: 1px solid #dedede;
+}
+/* financial-setting */
+.accounting {
+	width:135px;
+	height:20px;
+	line-height:20px;
+	margin:220px auto;
+	padding-left:22px;
+	background:url(../images/acct/sprite/close.png) no-repeat 0 -44px;
+}
+/* grid表格扩展-常用-弹出框 */
+.table-popovers {
+    position: relative;
+    min-width: 50px;
+    min-height: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 1px 4px #eaeaea;
+    z-index: 9999;
+    border-radius: 3px;
+}
+.table-popovers .before,
+.table-popovers .after {
+    position: absolute;
+    top: -14px;
+    left: 32px;
+    width: 0;
+    height: 0;
+    border: 8px solid transparent;
+    border-bottom-color: #fff;
+}
+.table-popovers .before {
+    top: -16px;
+    border-bottom-color: #eaeaea;
+}
+.table-popovers>h3 {
+    margin-bottom: 5px;
+    height: 15px;
+    line-height: 5px;
+    text-align: left;
+    font-weight: bold;
+}
+
+/* upload-img */
+.area-uploat-list { padding: 20px; }
+.special-pic {
+    position: relative;
+    display: table-cell !important;
+    *display: block !important;
+    *font-family: "Times New Roman", Times, serif;
+    text-align: center !important;
+    vertical-align: middle !important;
+    *word-wrap: normal !important;
+}
+.special-pic img {
+    vertical-align: middle !important;
+    border: 0 !important; }
+.special-pic object {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.area-uploat-item .btns {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 5px;
+}
+.area-uploat-item .btns .btn-remove-pic {
+    padding: 0;
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
+}
+.area-uploat-item {
+    position: relative;
+    float: left;
+    display: inline;
+    margin: 0 20px 20px 0;
+    width: 185px;
+    height: 125px;
+    overflow: hidden;
+}
+.area-uploat-item .special-pic {
+    width: 185px;
+    height: 125px;
+    color: #ccc;
+    background: #f9f9f9 url(../images/acct/sprite/icon-inp.png) no-repeat center -341px;
+}
+.area-uploat-item:hover .special-pic {
+    text-decoration: none;
+    color: #56a6ce;
+    background-position: center -469px;
+}
+.area-uploat-item .special-pic p {
+    padding-top: 31px;
+    *padding-top: 44px;
+    line-height: 24px;
+}
+.area-uploat-item .area-uploat-btn {
+    display: block;
+    height: 28px;
+    margin-top: 10px;
+    line-height: 28px;
+    font-size: 15px;
+    text-align: center;
+    color: #ea5413;
+    border: solid 1px #dedede;
+}
+.area-uploat-item-sm {
+    width: 106px;
+    height: 106px;
+    border: 1px solid #dedede;
+}
+.area-uploat-item-sm .special-pic {
+    width: 106px;
+    height: 106px;
+    cursor: pointer;
+}
+.area-uploat-list .records {
+    padding-right: 10px;
+}
+.area-uploat-list .records em {
+    display: inline-block;
+    width: 12px;
+    height: 14px;
+    background: url("../images/acct/sprite/ui.png") -25px -83px no-repeat;
+    margin-right: 2px;
+    vertical-align: middle;
+}
+.area-uploat-list .records a {
+    font-size: 12px;
+    color: #60caf1;
+}
+
+/* billed-form */
+.billed-form-print {
+    margin: 10px 0;
+    padding-right: 5px;
+    text-align: right;
+}
+.billed-form {
+    margin: 5px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #dedede;
+}
+.billed-form-tip {
+    text-align: right;
+    font-weight: bold;
+}
+.billed-form-h1 {
+    text-align: center;
+    line-height: 24px;
+    font-weight: bold;
+}
+.billed-form-dl {
+    line-height: 30px;
+}
+.billed-form-dl dt {
+    float: left;
+    width: 180px;
+    text-align: right;
+    font-weight: bold;
+}
+.billed-form-dl dd {
+    padding-left: 190px;
+}
+.billed-form-btn-group {
+    padding-left: 40px;
+    overflow: hidden;
+}
+.billed-form-btn-group span {
+    position: relative;
+    top: 16px;
+}
+.billed-form-collapse li {
+    margin-bottom: 15px;
+    zoom: 1;
+}
+.billed-form-collapse li:after,
+.billed-form-collapse li:before {
+    display: table;
+    content: "";
+}
+.billed-form-collapse li:after {
+    clear: both;
+}
+.billed-form-collapse .form-label {
+    float: left;
+    width: 310px;
+    text-align: right;
+    line-height: 30px;
+}
+.billed-form-collapse .form-controls {
+    float: none;
+    padding-left: 310px;
+    min-height: 30px;
+}
+.billed-form-collapse .input-text {
+    width: 250px;
+}
+
+
+/* 科目添加弹窗 */
+.itemSelector-con .input-text {
+    display: inline;
+    margin-right: 6px;
+    width: 300px;
+}
+.itemSelector-con .btn-search { padding: 5px 12px; }
+
+
+.itemSelector-con .content {
+    padding-top:10px;
+    min-width: 490px;
+    overflow:hidden;
+}
+.itemSelector-con .left,
+.itemSelector-con .right {
+    float: left;
+    width: 400px;
+}
+.itemSelector-con .mid { float: left; }
+.itemSelector-con .tit{
+    height:30px;
+    line-height:30px;
+    padding-left:8px;
+    background:#F9F9F9;
+    border-bottom:1px solid #DEDEDE;
+}
+.itemSelector-con b{
+    display:inline-block;
+    float:right;
+    width:12px;
+    height:12px;
+    margin:9px 12px 0 0;
+    background:url(../images/vop/sprite/close.png) 0 -32px;
+}
+.itemSelector-con .check-box { vertical-align: middle; }
+.itemSelector-con .check-box .icon-inp{ margin-right:8px; }
+.itemSelector-con ul {
+    height: 280px;
+    overflow-y: auto;
+}
+.itemSelector-con  li{ padding: 5px 8px 5px; }
+.itemSelector-con .mid {
+    width:60px;
+    margin:115px 10px 0 10px;
+}
+.itemSelector-con .mid a{
+    display:block;
+    width:58px;
+    height:30px;
+    line-height:30px;
+    font-size:12px;
+    color: #787878;
+    text-align:center;
+    background: #fff;
+    border:1px solid #ededed;
+    -webkit-border-radius:2px;
+    -moz-border-radius:2px;
+    -o-border-radius:2px;
+    border-radius:2px;
+}
+.itemSelector-con .mid .btn-del { margin-top:10px; }
+.itemSelector-con .mid .btn-add {
+    color: #fff;
+	background: #1e87f0;
+	border-color: #1e87f0;
+}
+.itemSelector-con .mid .btn-add:hover {
+	background: #1e87f0;
+	border-color: #1e87f0;
+}
+
+.itemSelector-con .mid .btn-del {
+    color: #fff;
+	background: #ffa810;
+	border-color: #ffa810;
+}
+.itemSelector-con .mid .btn-del:hover {
+    background: #ee5348;
+    border-color: #ee5348;
+}
+/*auto-comboBox 自定义工具栏 (add) */
+.extra-list-ctn {
+	padding-left: 5px;
+	background: #f5f5f5;
+}
+.extra-list-ctn  .quick-add {
+	display: inline-block;
+	padding: 5px;
+	cursor: pointer;
+}
+.extra-list-ctn  .quick-add:hover {
+	color: #56bfc0;
+}
+.extra-list-ctn  .quick-add i {
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	margin: -1px 2px 0 0;
+	vertical-align: top;
+	background-repeat: no-repeat;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAUUlEQVQ4T2NkwAFSU1MTQFKzZ89egE0JIy6NaWlpDSC5WbNmgWl0MCI0gkKPkZFRHt3z////dwCJMTIyHsAi95ARqlGBRI0PRkSoUj3JEUrkAM61Qy0EtbSkAAAAAElFTkSuQmCC);
+}
+
+/* 404 */
+.sys-error {
+	position: relative;
+	margin: 76px auto;
+	width: 578px;
+}
+.sys-error p {
+	position: absolute;
+	left: 45px;
+	top: 162px;
+	font-size: 14px;
+	line-height: 18px;
+	color: #989898;
+}
+.sys-error a {
+	position: absolute;
+	left: 45px;
+	top: 215px;
+	width: 114px;
+	height: 37px;
+	background: url("../images/acct/all/404-btn.jpg") no-repeat;
+}
+
+/* 个人中心样式 */
+.personal-center {
+	margin-bottom: 20px;
+	padding: 10px 10px 5px;
+	border: 1px solid #dedede;
+}
+.personal-center-mask {
+	position: relative;
+	padding: 30px 0 0 120px;
+	height: 90px;
+	background: #c7ced3 url("../images/acct/all/personal-mask.png") no-repeat top left;
+}
+.personal-center-cover {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	display: table;
+	width: 76px;
+	height: 76px;
+	line-height: 76px;
+	text-align: center;
+	background-color: #fff;
+	border: 2px solid #fff;
+	border-radius: 3px;
+}
+.personal-center-cover img { vertical-align: top; }
+
+.personal-center-mask p {
+	font-size: 14px;
+	color: #545454;
+	text-indent: 3px;
+}
+.personal-center-mask .btn-avatar {
+	display: inline-block;
+	margin-top: 10px;
+	width: 96px;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	color: #fff;
+	background-color: #666;
+	border-radius: 2px;
+	zoom: 1;
+	cursor:pointer;
+}
+.personal-center .input-text {
+	box-sizing: border-box;
+}

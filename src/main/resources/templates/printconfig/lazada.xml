@@ -1,0 +1,736 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="https://github.com/onlyou/printmeta" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <style>
+        <css name="f22">
+            <if testJs="printConfigTemplate.fontSize == '+2'">
+                <fontSize js="24px" pdf="js:24/1.3"></fontSize>
+            </if>
+            <if testJs="printConfigTemplate.fontSize == '0'">
+                <fontSize js="22px" pdf="js:22/1.3"></fontSize>
+            </if>
+            <if testJs="printConfigTemplate.fontSize == '-2'">
+                <fontSize js="20px" pdf="js:20/1.3"></fontSize>
+            </if>
+            <if testJs="printConfigTemplate.fontSize == '-4'">
+                <fontSize js="18px" pdf="js:18/1.3"></fontSize>
+            </if>
+        </css>
+        <css name="f22_scale"><!-- 第一行,后面有一个字体为 10 的工商号,因此只能用整个缩放来实现 -->
+            <if testJs="printConfigTemplate.fontSize == '+2'">
+                <fontSize js="24px" pdf="js:24/1.3"></fontSize><!-- 10号字刚好 12,不用缩放  -->
+            </if>
+            <if testJs="printConfigTemplate.fontSize == '0'">
+                <fontSize js="26.4px" pdf="js:22/1.3"></fontSize><!-- 22 / 0.833333 = 26.4 -->
+                <transformByJs js="scale(0.833333)"/><!-- 10 / 12 -->
+            </if>
+            <if testJs="printConfigTemplate.fontSize == '-2'">
+                <fontSize js="30px" pdf="js:20/1.3"></fontSize><!-- 20 / 0.666667 = 30 -->
+                <transformByJs js="scale(0.666667)"/><!-- 8 / 12 -->
+            </if>
+            <if testJs="printConfigTemplate.fontSize == '-4'">
+                <fontSize js="36px" pdf="js:18/1.3"></fontSize><!-- 18 / 0.5 = 36 -->
+                <transformByJs js="scale(0.5)"/><!-- 6 / 12 -->
+            </if>
+        </css>
+        <css name="f20">
+            <if testJs="printConfigTemplate.fontSize == '+2'">
+                <fontSize js="22px" pdf="js:22/1.3"></fontSize>
+            </if>
+            <if testJs="printConfigTemplate.fontSize == '0'">
+                <fontSize js="20px" pdf="js:20/1.3"></fontSize>
+            </if>
+            <if testJs="printConfigTemplate.fontSize == '-2'">
+                <fontSize js="18px" pdf="js:18/1.3"></fontSize>
+            </if>
+            <if testJs="printConfigTemplate.fontSize == '-4'">
+                <fontSize js="16px" pdf="js:16/1.3"></fontSize>
+            </if>
+        </css>
+        <css name="f13">
+            <if testJs="printConfigTemplate.fontSize == '+2'">
+                <fontSize js="15px" pdf="js:15/1.3"></fontSize>
+            </if>
+            <if testJs="printConfigTemplate.fontSize == '0'">
+                <fontSize js="13px" pdf="js:13/1.3"></fontSize>
+            </if>
+            <if testJs="printConfigTemplate.fontSize == '-2'">
+                <fontSize js="13px" pdf="js:11/1.3"></fontSize>
+                <!-- 小于 12 的字体,浏览器端用缩放 -->
+                <transformByJs js="scale(0.846154)"/>
+            </if>
+            <if testJs="printConfigTemplate.fontSize == '-4'">
+                <fontSize js="13px" pdf="js:9/1.3"></fontSize>
+                <!-- 小于 12 的字体,浏览器端用缩放 -->
+                <transformByJs js="scale(0.692308)"/>
+            </if>
+        </css>
+        <css name="f12">
+            <if testJs="printConfigTemplate.fontSize == '+2'">
+                <fontSize js="14px" pdf="js:14/1.3"></fontSize>
+            </if>
+            <if testJs="printConfigTemplate.fontSize == '0'">
+                <fontSize js="12px" pdf="js:12/1.3"></fontSize>
+            </if>
+            <if testJs="printConfigTemplate.fontSize == '-2'">
+                <fontSize js="12px" pdf="js:10/1.3"></fontSize>
+                <!-- 小于 12 的字体,浏览器端用缩放 -->
+                <transformByJs js="scale(0.833333)"/>
+            </if>
+            <if testJs="printConfigTemplate.fontSize == '-4'">
+                <fontSize js="12px" pdf="js:8/1.3"></fontSize>
+                <!-- 小于 12 的字体,浏览器端用缩放 -->
+                <transformByJs js="scale(0.666667)"/>
+            </if>
+        </css>
+        <css name="f10">
+            <if testJs="printConfigTemplate.fontSize == '+2'">
+                <fontSize js="12px" pdf="js:12/1.3"></fontSize>
+            </if>
+            <if testJs="printConfigTemplate.fontSize == '0'">
+                <fontSize js="12px" pdf="js:10/1.3"></fontSize>
+                <!-- 小于 12 的字体,浏览器端用缩放 -->
+                <transformByJs js="scale(0.833333)"/>
+            </if>
+            <if testJs="printConfigTemplate.fontSize == '-2'">
+                <fontSize js="12px" pdf="js:8/1.3"></fontSize>
+                <!-- 小于 12 的字体,浏览器端用缩放 -->
+                <transformByJs js="scale(0.666667)"/>
+            </if>
+            <if testJs="printConfigTemplate.fontSize == '-4'">
+                <fontSize js="12px" pdf="js:6/1.3"></fontSize>
+                <!-- 小于 12 的字体,浏览器端用缩放 -->
+                <transformByJs js="scale(0.5)"/>
+            </if>
+        </css>
+        <css name="fwb">
+            <fontWeight js="bold"/>
+        </css>
+        <css name="tl">
+            <textAlign js="left"/>
+        </css>
+        <css name="tc">
+            <textAlign js="center"/>
+        </css>
+        <css name="tr">
+            <textAlign js="right"/>
+        </css>
+        <css name="breakWord">
+            <whiteSpace js="pre-wrap" pdf="pre-wrap"/>
+            <wordWrap js="break-word"/>
+        </css>
+        <css name="borderLeft">
+            <borderLeftStyle js="solid"/>
+            <borderLeftWidth js="1px" pdf="0.1"/>
+            <borderLeftColor js="black"/>
+        </css>
+        <css name="borderTop">
+            <borderTopStyle js="solid"/>
+            <borderTopWidth js="1px" pdf="0.1"/>
+            <borderTopColor js="black"/>
+        </css>
+        <css name="borderRight">
+            <borderRightStyle js="solid"/>
+            <borderRightWidth js="1px" pdf="0.1"/>
+            <borderRightColor js="black"/>
+        </css>
+        <css name="borderBottom">
+            <borderBottomStyle js="solid"/>
+            <borderBottomWidth js="1px" pdf="0.1"/>
+            <borderBottomColor js="black"/>
+        </css>
+        <css name="bodyLineHeight">
+            <!--<lineHeight js="23px" />-->
+            <paddingTop js="2px"/>
+            <paddingBottom js="2px"/>
+        </css>
+        <css name="tdPadding">
+            <paddingLeft js="8px"/>
+            <paddingRight js="8px"/>
+        </css>
+        <css name="totalRightPadding1">
+            <paddingRight js="10px"/>
+        </css>
+        <css name="totalRightPadding5">
+            <paddingRight js="5px"/>
+        </css>
+        <css name="tdBorderCls1">
+            <borderTopStyle js="solid"/>
+            <borderTopWidth js="1px" pdf="0.1"/>
+            <borderTopColor js="#cccccc"/>
+
+            <borderRightStyle js="solid"/>
+            <borderRightWidth js="1px" pdf="0.1"/>
+            <borderRightColor js="#cccccc"/>
+
+            <borderBottomStyle js="solid"/>
+            <borderBottomWidth js="1px" pdf="0.1"/>
+            <borderBottomColor js="#cccccc"/>
+
+            <borderLeftStyle js="solid"/>
+            <borderLeftWidth js="1px" pdf="0.1"/>
+            <borderLeftColor js="#cccccc"/>
+        </css>
+        <css name="tdBorderBottomCls1">
+            <borderBottomStyle js="solid"/>
+            <borderBottomWidth js="2px" pdf="1"/>
+            <borderBottomColor js="black"/>
+        </css>
+        <css name="tdBorderBottomCls2">
+            <borderBottomStyle js="solid"/>
+            <borderBottomWidth js="1px" pdf="0.5"/>
+            <borderBottomColor js="black"/>
+        </css>
+    </style>
+
+    <macros>
+        <macro name="applyColspanCount">
+            <set var="colspanCount" valueJs="6" />
+            <if testJs="printConfigTemplate.sellerSKU == '0'">
+                <set var="colspanCount" valueJs="colspanCount - 1" />
+            </if>
+            <if testJs="printConfigTemplate.shopSKU == '0'">
+                <set var="colspanCount" valueJs="colspanCount - 1" />
+            </if>
+            <if testJs="printConfigTemplate.price == '0'">
+                <set var="colspanCount" valueJs="colspanCount - 1" />
+            </if>
+        </macro>
+        <macro name="addressBillingMacro">
+            <if testJs="order.address_billing.address1">
+                <div cls="f12">
+                    <span value="js:order.address_billing.address1 || ''"/>
+                    <if testJs="order.address_billing.address2">
+                        <span value="js:', ' + order.address_billing.address2"/>
+                    </if>
+                    <if testJs="order.address_billing.address2">
+                        <span value="js:', ' + order.address_billing.address2"/>
+                    </if>
+                    <if testJs="order.address_billing.address3">
+                        <span value="js:', ' + order.address_billing.address3"/>
+                    </if>
+                    <if testJs="order.address_billing.address4">
+                        <span value="js:', ' + order.address_billing.address4"/>
+                    </if>
+                    <if testJs="order.address_billing.address5">
+                        <span value="js:', ' + order.address_billing.address5"/>
+                    </if>
+                    <if testJs="order.address_billing.city">
+                        <span value="js:', ' + order.address_billing.city"/>
+                    </if>
+                    <if testJs="order.address_billing.country">
+                        <span value="js:', ' + order.address_billing.country"/>
+                    </if>
+                </div>
+            </if>
+        </macro>
+    </macros>
+
+    <body fontFamily="js:printConfigTemplate.fontFamily" pageSizePdf="A4" rotate="false" paddingLeft="50px"
+          paddingRight="50px" paddingTop="30px" paddingBottom="30px" width="685px" height="840px">
+        <params>
+            <param name="extendToFillBody" value="default"></param>
+        </params>
+        <!-- 计算列数 -->
+        <macroRef name="applyColspanCount" />
+
+        <table cellspacing="0" cellpadding="0" width="100%" tableLayout="fixed">
+            <thead>
+                <tr>
+                    <th width="js:printConfigTemplate.noWidth + '%'" height="1px"></th>
+                    <th width="js:printConfigTemplate.productNameWidth + '%'" height="1px"></th>
+                    <if testJs="printConfigTemplate.sellerSKU == '1'">
+                        <th width="js:printConfigTemplate.sellerSKUWidth + '%'" height="1px"></th>
+                    </if>
+                    <if testJs="printConfigTemplate.shopSKU == '1'">
+                        <th width="js:printConfigTemplate.shopSKUWidth + '%'" height="1px"></th>
+                    </if>
+                    <if testJs="printConfigTemplate.price == '1'">
+                        <th width="js:printConfigTemplate.priceWidth + '%'" height="1px"></th>
+                    </if>
+                    <th height="1px"></th>
+                </tr>
+                <tr>
+                    <set var="bottomCls" valueJs="'t1'" />
+                    <if testJs="printConfigTemplate.headerName == '1' || printConfigTemplate.headerAddress == '1' || printConfigTemplate.headerPhone == '1'">
+                        <set var="bottomCls" valueJs="'tl bodyLineHeight tdBorderBottomCls1'" />
+                    </if>
+                    <td colspan="js:colspanCount" cls="js:bottomCls">
+                        <if testJs="printConfigTemplate.headerName == '1'">
+                            <div cls="f12">
+                                <if testJs="printConfigTemplate.headerNameHtml">
+                                    <span value="js:printConfigTemplate.headerNameHtml"/>
+                                </if>
+                                <if testJs="!(printConfigTemplate.headerNameHtml)">
+                                    <set var="firstName" valueJs="order.address_billing.first_name || ''"/>
+                                    <set var="lastName" valueJs="order.address_billing.last_name || ''"/>
+                                    <span value="js:firstName + ' ' + lastName"/>
+                                </if>
+                            </div>
+                        </if>
+                        <if testJs="printConfigTemplate.headerAddress == '1'">
+                            <if testJs="printConfigTemplate.headerAddressHtml">
+                                <div cls="f12">
+                                    <span value="js:printConfigTemplate.headerAddressHtml"/>
+                                </div>
+                            </if>
+                            <if testJs="!(printConfigTemplate.headerAddressHtml)">
+                                <macroRef name="addressBillingMacro"/>
+                            </if>
+                        </if>
+                        <if testJs="printConfigTemplate.headerPhone == '1'">
+                            <if testJs="printConfigTemplate.headerPhoneHtml">
+                                <div cls="f12">
+                                    <span value="js:printConfigTemplate.headerPhoneHtml"/>
+                                </div>
+                            </if>
+                            <if testJs="!(printConfigTemplate.headerPhoneHtml)">
+                                <if testJs="order.address_billing.phone">
+                                    <div cls="f12">
+                                        <span value="js:order.address_billing.phone"/>
+                                    </div>
+                                </if>
+                            </if>
+                        </if>
+                    </td>
+                </tr>
+                <if testJs="printConfigTemplate.taxInvoice == '1'">
+                    <tr>
+                        <td colspan="js:colspanCount">
+                            <div cls="f20 tc">
+                                <if testJs="printConfigTemplate.taxInvoiceHtml">
+                                    <span value="js:printConfigTemplate.taxInvoiceHtml"/>
+                                </if>
+                                <if testJs="!(printConfigTemplate.taxInvoiceHtml)">
+                                    <span value="INVOICE"/>
+                                </if>
+                            </div>
+                        </td>
+                    </tr>
+                </if>
+                <tr>
+                    <td colspan="js:colspanCount">
+                        <div height="10px"></div>
+                        <table cellspacing="0" cellpadding="0" width="100%" tableLayout="fixed">
+                            <tbody>
+                                <if testJs="printConfigTemplate.invoiceNumber == '1'">
+                                    <if testJs="order.itemLi &amp;&amp; order.itemLi.length &gt; 0">
+                                        <tr>
+                                            <td width="54%" cls="tdBorderCls1 tl bodyLineHeight">
+                                                <div cls="f12">
+                                                    <if testJs="printConfigTemplate.invoiceNumberHtml">
+                                                        <span value="js:printConfigTemplate.invoiceNumberHtml + ':'"/>
+                                                    </if>
+                                                    <if testJs="!(printConfigTemplate.invoiceNumberHtml)">
+                                                        <span value="Invoice Number:"/>
+                                                    </if>
+                                                </div>
+                                            </td>
+                                            <td width="2%" cls="tdBorderCls1 bodyLineHeight"></td>
+                                            <td cls="tdBorderCls1 bodyLineHeight">
+                                                <div cls="f12">
+                                                    <span value="js:order.itemLi[0].invoice_number"/>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </if>
+                                </if>
+                                <if testJs="printConfigTemplate.orderNumber == '1'">
+                                    <tr>
+                                        <td width="54%" cls="tdBorderCls1 tl bodyLineHeight">
+                                            <div cls="f12">
+                                                <if testJs="printConfigTemplate.orderNumberHtml">
+                                                    <span value="js:printConfigTemplate.orderNumberHtml + ':'"/>
+                                                </if>
+                                                <if testJs="!(printConfigTemplate.orderNumberHtml)">
+                                                    <span value="Order Number:"/>
+                                                </if>
+                                            </div>
+                                        </td>
+                                        <td width="2%" cls="tdBorderCls1 bodyLineHeight"></td>
+                                        <td cls="tdBorderCls1 bodyLineHeight">
+                                            <div cls="f12">
+                                                <span value="js:order.order_number + ''"/>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </if>
+                                <if testJs="printConfigTemplate.orderDate == '1'">
+                                    <tr>
+                                        <td width="54%" cls="tdBorderCls1 tl bodyLineHeight">
+                                            <div cls="f12">
+                                                <if testJs="printConfigTemplate.orderDateHtml">
+                                                    <span value="js:printConfigTemplate.orderDateHtml + ':'"/>
+                                                </if>
+                                                <if testJs="!(printConfigTemplate.orderDateHtml)">
+                                                    <span value="Order Date:"/>
+                                                </if>
+                                            </div>
+                                        </td>
+                                        <td width="2%" cls="tdBorderCls1 bodyLineHeight"></td>
+                                        <td cls="tdBorderCls1 bodyLineHeight">
+                                            <div cls="f12">
+                                                <span value="js:order.created_at_show"/>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </if>
+                                <if testJs="printConfigTemplate.invoiceTo == '1'">
+                                    <tr>
+                                        <td width="54%" cls="tdBorderCls1 tl bodyLineHeight">
+                                            <div cls="f12">
+                                                <if testJs="printConfigTemplate.invoiceToHtml">
+                                                    <span value="js:printConfigTemplate.invoiceToHtml + ':'"/>
+                                                </if>
+                                                <if testJs="!(printConfigTemplate.invoiceToHtml)">
+                                                    <span value="Invoice To:"/>
+                                                </if>
+                                            </div>
+                                        </td>
+                                        <td width="2%" cls="tdBorderCls1 bodyLineHeight"></td>
+                                        <td cls="tdBorderCls1 bodyLineHeight">
+                                            <div cls="f12">
+                                                <span value="js:(order.customer_first_name || '') + ' ' + (order.customer_last_name || '')"/>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </if>
+                                <if testJs="printConfigTemplate.invoiceDate == '1'">
+                                    <tr>
+                                        <td width="54%" cls="tdBorderCls1 tl bodyLineHeight">
+                                            <div cls="f12">
+                                                <if testJs="printConfigTemplate.invoiceDateHtml">
+                                                    <span value="js:printConfigTemplate.invoiceDateHtml + ':'"/>
+                                                </if>
+                                                <if testJs="!(printConfigTemplate.invoiceDateHtml)">
+                                                    <span value="Invoice Date:"/>
+                                                </if>
+                                            </div>
+                                        </td>
+                                        <td width="2%" cls="tdBorderCls1 bodyLineHeight"></td>
+                                        <td cls="tdBorderCls1 bodyLineHeight">
+                                            <div cls="f12">
+                                                <span value="js:order.invoice_date_show || ''"/>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </if>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="js:colspanCount">
+                        <div height="10px"></div>
+                        <table cellspacing="0" cellpadding="0" width="100%" tableLayout="fixed">
+                            <tbody>
+                                <tr>
+                                    <td width="48%" cls="tdBorderCls1 tl bodyLineHeight">
+                                        <div cls="f12 fwb">
+                                            <span value="BILLING ADDRESS"/>
+                                        </div>
+                                    </td>
+                                    <td width="4%"></td>
+                                    <td cls="tdBorderCls1 bodyLineHeight">
+                                        <div cls="f12 fwb">
+                                            <span value="SHIPPING ADDRESS"/>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td cls="tdBorderCls1 tl bodyLineHeight" verticalAlign="top">
+                                        <macroRef name="addressBillingMacro"/>
+                                    </td>
+                                    <td cls="tdBorderCls1 bodyLineHeight"></td>
+                                    <td cls="tdBorderCls1 bodyLineHeight" verticalAlign="top">
+                                        <div cls="f12">
+                                            <span value="js:order.address_shipping.address1 || ''"/>
+                                            <if testJs="order.address_shipping.address2">
+                                                <span value="js:', ' + order.address_shipping.address2"/>
+                                            </if>
+                                            <if testJs="order.address_shipping.address2">
+                                                <span value="js:', ' + order.address_shipping.address2"/>
+                                            </if>
+                                            <if testJs="order.address_shipping.address3">
+                                                <span value="js:', ' + order.address_shipping.address3"/>
+                                            </if>
+                                            <if testJs="order.address_shipping.address4">
+                                                <span value="js:', ' + order.address_shipping.address4"/>
+                                            </if>
+                                            <if testJs="order.address_shipping.address5">
+                                                <span value="js:', ' + order.address_shipping.address5"/>
+                                            </if>
+                                            <if testJs="order.address_shipping.city">
+                                                <span value="js:', ' + order.address_shipping.city"/>
+                                            </if>
+                                            <if testJs="order.address_shipping.country">
+                                                <span value="js:', ' + order.address_shipping.country"/>
+                                            </if>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td cls="tdBorderCls1 tl bodyLineHeight" verticalAlign="top">
+                                        <div cls="f12">
+                                            <span value="Contact Phone:"/>
+                                            <if testJs="order.address_billing.phone">
+                                                <span value="js:' ' + order.address_billing.phone"/>
+                                            </if>
+                                            <if testJs="order.address_billing.phone2">
+                                                <span value="js:', ' + order.address_billing.phone2"/>
+                                            </if>
+                                        </div>
+                                    </td>
+                                    <td></td>
+                                    <td cls="tdBorderCls1 bodyLineHeight" verticalAlign="top">
+                                        <div cls="f12">
+                                            <span value="Contact Phone:"/>
+                                            <if testJs="order.address_shipping.phone">
+                                                <span value="js:' ' + order.address_shipping.phone"/>
+                                            </if>
+                                            <if testJs="order.address_shipping.phone2">
+                                                <span value="js:', ' + order.address_shipping.phone2"/>
+                                            </if>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div cls="f12">
+                            <span value="Payment Method: "/>
+                            <span value="js:order.payment_method || ''"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="js:colspanCount" cls="bodyLineHeight">
+                        <div height="10px"></div>
+                        <if testJs="printConfigTemplate.itemInfoChecked == '1'">
+                            <div cls="f12 fwb">
+                                <span value="Your ordered items for "/>
+                                <span value="js:order.order_number + ''"/>
+                            </div>
+                        </if>
+                    </td>
+                </tr>
+                <tr>
+                    <td cls="tdBorderCls1 tdPadding">
+                        <div cls="f12 bodyLineHeight fwb">
+                            <span value="#"/>
+                        </div>
+                    </td>
+                    <td cls="tdBorderCls1 tdPadding">
+                        <div cls="f12 bodyLineHeight fwb">
+                            <span value="Product name"/>
+                        </div>
+                    </td>
+                    <if testJs="printConfigTemplate.sellerSKU == '1'">
+                        <td cls="tdBorderCls1 tdPadding">
+                            <div cls="f12 bodyLineHeight fwb">
+                                <span value="Seller SKU"/>
+                            </div>
+                        </td>
+                    </if>
+                    <if testJs="printConfigTemplate.shopSKU == '1'">
+                        <td cls="tdBorderCls1 tdPadding">
+                            <div cls="f12 bodyLineHeight fwb">
+                                <span value="Shop SKU"/>
+                            </div>
+                        </td>
+                    </if>
+                    <if testJs="printConfigTemplate.price == '1'">
+                        <td cls="tdBorderCls1 tdPadding">
+                            <div cls="f12 bodyLineHeight fwb">
+                                <span value="Price"/>
+                            </div>
+                        </td>
+                    </if>
+                    <td cls="tdBorderCls1 tdPadding">
+                        <div cls="f12 bodyLineHeight fwb">
+                            <span value="Paid Price"/>
+                        </div>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <forEach var="item" itemsJs="order.itemLi" varStatus="index">
+                    <tr>
+                        <td cls="tl tdBorderCls1 tdPadding">
+                            <div cls="f12 bodyLineHeight breakWord">
+                                <span value="js:(index + 1) + ''"/>
+                            </div>
+                        </td>
+                        <td cls="tl tdBorderCls1 tdPadding">
+                            <div cls="f12 bodyLineHeight breakWord">
+                                <span value="js:item.name"/>
+                            </div>
+                        </td>
+                        <if testJs="printConfigTemplate.sellerSKU == '1'">
+                            <td cls="tl tdBorderCls1 tdPadding">
+                                <div cls="f12 bodyLineHeight breakWord">
+                                    <span value="js:item.sku"/>
+                                </div>
+                            </td>
+                        </if>
+                        <if testJs="printConfigTemplate.shopSKU == '1'">
+                            <td cls="tl tdBorderCls1 tdPadding">
+                                <div cls="f12 bodyLineHeight breakWord">
+                                    <span value="js:item.shop_sku"/>
+                                </div>
+                            </td>
+                        </if>
+                        <if testJs="printConfigTemplate.price == '1'">
+                            <td cls="tl tdBorderCls1 tdPadding">
+                                <div cls="f12 bodyLineHeight breakWord" scaleToFitContentByPdf="true">
+                                    <span value="js:item.item_price" format="amt"/>
+                                </div>
+                            </td>
+                        </if>
+                        <td cls="tl tdBorderCls1 tdPadding">
+                            <div cls="f12 bodyLineHeight breakWord" scaleToFitContentByPdf="true">
+                                <span value="js:item.paid_price" format="amt"/>
+                            </div>
+                        </td>
+                    </tr>
+                </forEach>
+            </tbody>
+            <tloop countJs="20">
+                <tr>
+                    <td width="js:printConfigTemplate.noWidth + '%'">
+                        <if testJs="isCustomerConfig == '1'">
+                            <span value="1" visibility="hidden" />
+                        </if>
+                        <if testJs="isCustomerConfig != '1'">
+                            <span value=" "/>
+                        </if>
+                    </td>
+                    <td width="js:printConfigTemplate.productNameWidth + '%'"></td>
+                    <if testJs="printConfigTemplate.sellerSKU == '1'">
+                        <td width="js:printConfigTemplate.sellerSKUWidth + '%'"></td>
+                    </if>
+                    <if testJs="printConfigTemplate.shopSKU == '1'">
+                        <td width="js:printConfigTemplate.shopSKUWidth + '%'"></td>
+                    </if>
+                    <if testJs="printConfigTemplate.price == '1'">
+                        <td width="js:printConfigTemplate.priceWidth + '%'"></td>
+                    </if>
+                    <td></td>
+                </tr>
+            </tloop>
+            <tbottom>
+                <tr>
+                    <td colspan="js:colspanCount">
+                        <table cellspacing="0" cellpadding="0" width="100%" tableLayout="fixed">
+                            <tbody>
+                                <tr>
+                                    <td width="50%"></td>
+                                    <td>
+                                        <table cellspacing="0" cellpadding="0" width="100%" tableLayout="fixed">
+                                            <tbody>
+                                                <if testJs="printConfigTemplate.subtotalChecked == '1'">
+                                                    <tr>
+                                                        <td cls="tl">
+                                                            <div cls="f12 bodyLineHeight breakWord">
+                                                                <span value="Subtotal:"/>
+                                                            </div>
+                                                        </td>
+                                                        <td cls="tr">
+                                                            <div cls="f12 bodyLineHeight breakWord" scaleToFitContentByPdf="true">
+                                                                <span fontStyle="italic" value="js:order.currencyShow + ' '"/>
+                                                                <span value="js:order.paid_price_sum" format="amt"/>
+                                                                <!--<span value="js:' ' + order.paid_price_sum" format="amt"/>-->
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </if>
+                                                <if testJs="printConfigTemplate.voucherAppliedChecked == '1'">
+                                                    <tr>
+                                                        <td cls="tl tdBorderBottomCls1">
+                                                            <div cls="f12 bodyLineHeight breakWord">
+                                                                <span value="Less: Voucher applied:"/>
+                                                            </div>
+                                                        </td>
+                                                        <td cls="tr tdBorderBottomCls1">
+                                                            <div cls="f12 bodyLineHeight breakWord" scaleToFitContentByPdf="true">
+                                                                <span fontStyle="italic" value="js:order.currencyShow + ' '"/>
+                                                                <span value="js:order.voucher" format="amt"/>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </if>
+                                                <if testJs="printConfigTemplate.totalChecked == '1'">
+                                                    <tr>
+                                                        <td cls="tl">
+                                                            <div cls="f12 bodyLineHeight breakWord fwb">
+                                                                <span value="Total:"/>
+                                                            </div>
+                                                        </td>
+                                                        <td cls="tr">
+                                                            <div cls="f12 bodyLineHeight breakWord fwb" scaleToFitContentByPdf="true">
+                                                                <span fontStyle="italic" value="js:order.currencyShow + ' '"/>
+                                                                <span value="js:order.paid_price_voucher_sum || ''" format="amt"/>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </if>
+                                                <if testJs="printConfigTemplate.shippingChecked == '1'">
+                                                    <tr>
+                                                        <td cls="tl tdBorderBottomCls1">
+                                                            <div cls="f12 bodyLineHeight breakWord">
+                                                                <span value="Shipping:"/>
+                                                            </div>
+                                                        </td>
+                                                        <td cls="tr tdBorderBottomCls1">
+                                                            <div cls="f12 bodyLineHeight breakWord" scaleToFitContentByPdf="true">
+                                                                <span fontStyle="italic" value="js:'+' + order.currencyShow + ' '"/>
+                                                                <span value="js:(order.shipping_fee || '')" format="amt"/>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </if>
+                                                <if testJs="printConfigTemplate.netPaidChecked == '1'">
+                                                    <tr>
+                                                        <td cls="tl">
+                                                            <div cls="f12 bodyLineHeight breakWord">
+                                                                <span value="Net paid:"/>
+                                                            </div>
+                                                        </td>
+                                                        <td cls="tr">
+                                                            <div cls="f12 bodyLineHeight breakWord" scaleToFitContentByPdf="true">
+                                                                <span fontStyle="italic" value="js:order.currencyShow + ' '"/>
+                                                                <span value="js:(order.price || '')" format="amt"/>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2" height="1px" cls="tdBorderBottomCls2"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2" height="1px" cls="tdBorderBottomCls2"></td>
+                                                    </tr>
+                                                </if>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <if testJs="printConfigTemplate.remarkChecked == '1'">
+                    <tr>
+                        <td colspan="js:colspanCount">
+                            <div cls="f12" paddingTop="10px">
+                                <if testJs="printConfigTemplate.remarkCheckedHtml">
+                                    <span value="js:printConfigTemplate.remarkCheckedHtml"/>
+                                </if>
+                                <if testJs="!(printConfigTemplate.remarkCheckedHtml)">
+                                    <span value="Upon receipt of your order, we encourage you to examine the parcel carefully and keep your buying invoice. Should there be any item damage due to our transportation, please contact our customer service within 24 hours for claim purposes." />
+                                </if>
+                            </div>
+                        </td>
+                    </tr>
+                </if>
+            </tbottom>
+        </table>
+    </body>
+</html>

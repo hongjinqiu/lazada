@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>Lazada Invoice Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11;IE=10;IE=9;IE=8;IE=7;IE=EDGE">
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/base.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/style.css}">
+
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/global.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/common.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/all.css}">
+
+    <link rel="stylesheet" type="text/css" th:href="@{/js/framework/widgets/AutoCombobox/1.2.1-SNAPSHOT/css/auto-combobox.css?ver=20190213_1207}">
+    <link rel="stylesheet" type="text/css" th:href="@{/js/framework/widgets/AutoCombobox/1.2.1-SNAPSHOT/css/auto-combobox.application.extend.css?ver=20190213_1207}">
+    <link rel="stylesheet" type="text/css" th:href="@{/js/framework/widgets/jQueryUI/1.10.4.ext.0.2-SNAPSHOT/css/jquery-ui-1.10.3.custom.all.min.css?ver=20190213_1207}">
+    <link rel="stylesheet" type="text/css" th:href="@{/js/framework/widgets/Tips/1.1.1/tips.all.min.css?ver=20190213_1207}">
+    <link rel="stylesheet" type="text/css" th:href="@{/js/framework/widgets/jQueryBlockUI/2.70/css/blockUI.application.extend.css?ver=20190213_1207}">
+    <link rel="stylesheet" type="text/css" th:href="@{/js/framework/widgets/jQueryBlockUI/2.70/css/blockUI.all.min.css?ver=20190213_1207}">
+
+    <script type="text/javascript">
+        var contextPath='[[${#httpServletRequest.getContextPath()}]]';
+    </script>
+    <!--<script src="assets/js/jquery-1.11.1.min.js"></script>-->
+    <script type="text/javascript" th:src="@{/js/lib/v1.11.0-rc1-ext0.1/jquery.all.min.js}"></script>
+
+    <script type="text/javascript" th:src="@{/js/framework/widgets/jQueryUI/1.10.4.ext.0.2-SNAPSHOT/jquery-ui-1.10.4.all.min.js?ver=20190213_1207}"></script>
+    <script type="text/javascript" th:src="@{/js/framework/widgets/jQueryUI/1.10.4.ext.0.2-SNAPSHOT/jquery-ui-1.10.4.all.min.en.js?ver=20190213_1207}"></script>
+    <script type="text/javascript" th:src="@{/js/framework/widgets/Tips/1.1.1/tips.all.min.js?ver=20190213_1207}"></script>
+
+
+    <script type="text/javascript" th:src="@{/js/lib/jQueryUtils/1.1.0/jquery-number-utils.js}"></script>
+    <!--<script type="text/javascript" th:src="@{/js/lib/jquery-easyui-1.6.7/jquery.easyui.min.js}"></script>-->
+    <script type="text/javascript" th:src="@{/js/lib/1.6.0-ext0.1/underscore.js}"></script>
+    <script type="text/javascript" th:src="@{/js/lib/1.6.0-ext0.1/underscore-application-ext.js}"></script>
+
+    <script type="text/javascript" th:src="@{/js/framework/widgets/OUI/1.1.1/1_oui.util.js?ver=20190213_1207}"></script>
+    <script type="text/javascript" th:src="@{/js/framework/widgets/OUI/1.1.1/2_oui.position.js?ver=20190213_1207}"></script>
+    <script type="text/javascript" th:src="@{/js/framework/widgets/OUI/1.1.1/oui.application.extend.js?ver=20190213_1207}"></script>
+
+    <script type="text/javascript" th:src="@{/js/framework/widgets/AutoCombobox/1.2.1-SNAPSHOT/auto-combobox.js?ver=20190213_1207}"></script>
+    <script type="text/javascript" th:src="@{/js/framework/widgets/AutoCombobox/1.2.1-SNAPSHOT/auto-combobox-en.js?ver=20190213_1207}"></script>
+
+    <script type="text/javascript" th:src="@{/js/framework/widgets/jqForm/1.1.2/form-plugin.js?ver=20190213_1207}"></script>
+
+    <script type="text/javascript" th:src="@{/js/framework/widgets/jQueryBlockUI/2.70/jquery.blockUI.js?ver=20190213_1207}"></script>
+    <script type="text/javascript" th:src="@{/js/framework/widgets/jQueryBlockUI/2.70/jquery.blockUI.all.min.js?ver=20190213_1207}"></script>
+    <script type="text/javascript" th:src="@{/js/framework/widgets/jQueryBlockUI/2.70/jquery.blockUI.application.extend.js?ver=20190213_1207}"></script>
+    <script type="text/javascript" th:src="@{/js/framework/widgets/jQueryBlockUI/2.70/jquery.blockUI.extend.all.min.js?ver=20190213_1207}"></script>
+
+    <script type="text/javascript" th:src="@{/js/acct/common/applicationUtils/checkbox-util.js?ver=20190213_1207}"></script>
+
+    <!--
+    <script type="text/javascript" th:src="@{/assets/js/waves.js}"></script>
+    <script type="text/javascript" th:src="@{/js/common.js}"></script>
+    <script type="text/javascript" th:src="@{/js/commonDialog.js}"></script>
+    -->
+
+    <script type="text/javascript" th:src="@{/js/printconfig/printConfig.js?ver=20190213_1207}"></script>
+    <style type="text/css">
+        html,
+        body {
+            height: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+    <style type="text/css">
+
+        /*打印模板配置-20180529*/
+        .flex{display:-webkit-flex;display:flex;flex-flow:row;}
+        .flex-1{flex:1;}
+        .modal-fixed{position:fixed;}
+        .modal-body .icon-close {
+            position: absolute;
+            right: 10px;
+            top: 15px;
+            width: 16px;
+            height: 16px;
+            text-decoration: none;
+            background: url(/assets/images/acct/sprite/icon-x.png) -34px -46px;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        .modal-fixed .icon-close.close-lg{right:-30px;top:0;width:20px;height:20px;background:url(/assets/images/acct/sprite/icon-x.png) 0 0;}
+
+        .print-conf{border:1px solid #e5e5e5;}
+        .print-conf .print-left{width: 42%}
+        .print-conf .print-right{width:58%}
+        .print-conf .print-left .print-lcont{padding: 10px 5px 10px 15px}
+        .print-conf .print-right .print-rcont{padding:10px 13px 10px 15px;}
+        .print-conf .ptitle{color:#333;text-align:center;line-height:30px;margin-bottom:3px}
+        .print-conf .template-con{text-align:center;}
+        .print-conf .template-con li{margin:0 16px 10px 5px;float:left;display:inline-block;cursor:pointer;min-width:66px;max-height:150px;vertical-align:top;}
+        .print-conf .template-con li .pic{    margin: 0 auto;border:1px solid #d6d6d6;width:66px;height:84px;}
+        .print-conf .template-con li img{width:66px;height:84px;}
+        .print-conf .template-con li p{word-break:break-all;margin-top:8px;}
+        .print-conf .template-con li.active .pic,.print-conf .template-con li:hover .pic{border-color:#56bfc0}
+        .print-conf .template-con li.active,.print-conf .template-con li:hover{color:#56bfc0}
+        .print-list+.print-list{margin-top:15px;}
+        .print-conf .term-title{height:30px;line-height:30px;color:#333;font-weight:bold;position:relative;margin-bottom:5px}
+        .print-conf .term-title span{display:inline-block;background:#f2f5f7;position:relative;padding-right:10px;}
+        .print-conf .term-title:before{position:absolute;content:"";left:0;top:14px;width:100%;border-top:1px solid #e5e5e5;}
+        .print-conf .logo-edit{position:relative;padding-left:170px;min-height:100px}
+        .print-conf .le-left{position:absolute;left:0;top:0;width:142px;height:98px;text-align:center;line-height:98px;background:#fff;overflow:hidden;border-top:1px solid #f0f0f0;}
+        .print-conf .le-left img{max-width:100%;max-height:98px;}
+        .print-conf .placement-icon{display:inline-block;width:26px;height:28px;cursor:pointer;margin-right:20px;background:url(/assets/images/acct/temp/placement-icon.png) no-repeat 0 0;}
+        .print-conf .placement-icon.pi-1.active{background-position:0 -28px;}
+        .print-conf .placement-icon.pi-3{background-position:-26px 0;}
+        .print-conf .placement-icon.pi-3.active{background-position:-26px -28px;}
+        .print-conf .placement-icon.pi-2{background-position:-52px 0;}
+        .print-conf .placement-icon.pi-2.active{background-position:-52px -28px;}
+        .print-conf .le-right .form-horizontal .row{margin:15px 0;}
+        .print-conf .header-term .form-horizontal .row.col-6{width: 50%}
+        .print-conf .header-term .form-horizontal .row.col-5{    width: 41.66667%;}
+        .print-conf .header-term .form-horizontal .row.col-7{    width: 58.33333%;}
+        .print-conf .header-term .form-horizontal .form-label{min-width: 100px;text-align: left;}
+        .print-conf .header-term .form-horizontal .check-box .option-text{    margin-right: 0;}
+        .print-conf .term-handle{margin-top: 2px;display: inline-block;    vertical-align: top;line-height: 20px}
+        .print-conf .term-handle a{display:inline-block;width:20px;height:20px;background:url(/assets/images/acct/temp/plus.png) no-repeat 0 -43px;}
+        .print-conf .term-handle a{display:inline-block;width:20px;height:20px;vertical-align:top;background:url(/assets/images/acct/temp/plus.png) no-repeat 0 -43px;}
+        .print-conf .term-handle a.dec{background-position:0 -43px;}
+        .print-conf .term-handle a.inc{background-position:0 -63px;}
+        .print-conf .term-handle input{width:30px;height:20px;line-height:20px;background:transparent;text-align:center;}
+        .print-conf .term-handle .tip{color:#999}
+        .print-conf .term-top-right{margin:-15px 10px 15px 0;position:relative;color:#999}
+        .print-conf .term-bottom-right{margin:15px 10px 0 0;}
+        .print-conf .term-bottom-right a{text-decoration:underline;color:#999}
+        .print-conf .term-bottom-right a:hover{color:#333;}
+        .print-conf .term-handle span{    display: inline-block;min-width:58px}
+        .print-conf .body-term .form-horizontal .form-label{min-width: 200px;}
+        .print-conf .footer-term .form-horizontal .form-label{min-width: 140px;text-align: left;}
+        .print-right-box{background: #fff;border: 1px solid #e5e5e5;padding:30px 15px 10px 15px;}
+        .print-right-box .examine-con{padding:0;min-height: 680px}
+        .print-right-box .examine-con .title .main-tit,
+        .print-right-box .examine-con .title .sub-tit{color: #333}
+        .print-right-box .examine-con .title .main-tit{letter-spacing: -0.5px}
+        .print-right-box .examine-head{padding:0 0 15px 0;margin: 0 0 15px 0;border-color:#e5e5e5;}
+        .print-right-box .examine-con .form-horizontal .row{    margin: 5px 0;color: #4c4c4c}
+        .print-right-box .examine-con .form-horizontal .form-label{font-weight: normal;}
+        .lh20,.examine-con .title .sub-tit{line-height: 20px}
+        .print-right-box .examine-table thead > tr > th,
+        .print-right-box .examine-table  tbody > tr > td{
+            padding:8px 2px;font-weight: normal;font-size: 12px;    border: 1px solid #f0f0f0;
+        }
+        .print-right-box .examine-table thead > tr > th{letter-spacing: -0.5px}
+        .print-right-box .examine-table{margin-top:30px;}
+        .print-right-box .reptype-title{height: 28px;line-height: 28px;  border: 1px solid #f0f0f0;border-bottom: 0;color: #333}
+        .print-right-box .reptype-list{margin: 0;border-color:#f0f0f0;padding-top:20px;}
+        .print-right-box .examine-table-type {bottom:30px;}
+        .print-right-box .examine-table-type .examine-table{    margin-top:0;}
+        .print-right-box .reptype-right{line-height: 20px;font-weight: bold;}
+        .print-right-box .reptype-end{padding-top:10px;margin-top:20px; border-top: 1px solid #f0f0f0;font-weight: bold;color: #333}
+        .print-right-box .examine-logo{position: absolute;right:-5px;top:-20px;}
+        .print-rmore .more{margin:20px 0 10px 0;padding-top:10px;border-top: 1px solid #e5e5e5;cursor:pointer}
+        .print-rmore .more i{display:inline-block;width: 12px;height: 12px;transform: scale(0.8);
+            background:url(/assets/images/acct/sprite/ui.png) no-repeat -167px -224px;vertical-align: -2px;
+        }
+
+        .print-conf .input-text.w130{width: 130px}
+        .print-conf .input-text.w44{width: 44px}
+        .print-conf .check-box,.print-conf .check-box .option-text{line-height: 22px}
+        .modal-fixed .print-right-box{ padding:40px 25px 10px 25px; border:none;background: transparent;}
+        .print-popup{  height: 100%;overflow: auto;}
+        .print-popup .examine-con,
+        .print-popup .examine-con .title .sub-tit,
+        .print-popup .examine-con .form-horizontal,
+        .print-popup .examine-table thead > tr > th,
+        .print-popup .examine-table tbody > tr > td{font-size: 14px}
+        .print-popup .examine-con .title .main-tit{font-size: 18px}
+
+        .modal-shade {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 99;
+            min-height:100%;
+            min-width: 100%;
+            background: rgba(0, 0, 0, .4);
+            -webkit-transition: background .3s;
+            transition: background .3s;
+        }
+        .modal-body {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -150px 0 0 -350px;
+            width: 700px;
+            min-height: 888px;
+            z-index: 100;
+            background: #fff;
+            box-shadow: 0px 0px 10px rgba(0,0,0,.2);
+        }
+        .border {border:1px solid #c1c1c1}
+        .form-controls { min-height: 22px;}
+        .w120{
+            width: 120px;
+        }
+
+        .w74{
+            width: 74px;
+        }
+        .sun-bgdis .ui-spinner{    background: #f2f2f2;}
+        .text-muted {
+            color: #60caf1;
+            cursor:pointer
+        }
+        .btn-back,.more a{
+            color: #60caf1;
+            text-decoration: none;
+        }
+        .btn-back:hover, .more a:hover {
+            text-decoration: underline;
+        }
+        .box-shadow {
+            background: #fcfcfc;
+        }
+        .ui-spinner a.ui-spinner-button { cursor: pointer;}
+        .justify-c { justify-content: center;}
+    </style>
+    <script th:inline="javascript">
+        var contextPath = [[${#httpServletRequest.getContextPath()}]];
+        var pageObj = pageObj || {};
+        pageObj = $.extend(pageObj, {
+            configs: [[${#request.getAttribute("configs")}]] || []
+            ,templateId: [[${#request.getAttribute("templateId")}]]
+        });
+    </script>
+</head>
+
+<body>
+<div class="page-center">
+    <!-- header -->
+    <div class="header" th:insert="~{navigation :: headBar}"></div>
+    <!-- page-body -->
+    <div class="wrapper mlbox" style="min-width: 1280px;background: #f2f5f7">
+        <div class="mlbox-content" style="min-width: 1280px">
+            <div class="print-conf clearfix">
+                <div class="print-left col-6">
+                    <div class="print-lcont">
+                        <form name="printCustomForm">
+                            <!--  Page setting -->
+                            <div class="print-list">
+                                <div class="ptitle"><strong>Page setting</strong></div>
+                                <div class="top-search">
+                                    <div class="mb10 clearfix">
+                                        <div class="text dir-r"><em class="required mr5"></em>Template Name:</div>
+                                        <div class="controls col-3">
+                                            <input type="text" name="templateName" class="input-text" maxlength="25"/>
+                                            <input type="text" name="templateId" style="display: none;"/>
+                                            <input type="text" name="roundingFlag" style="display: none;"/>
+                                            <input type="text" name="templateType" style="display: none;"/>
+                                            <input type="text" name="fileName" style="display: none;"/>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix">
+                                        <div class="text dir-r">Paper:</div>
+                                        <div class="controls col-2 mr40">
+                                            <label class="pop-select disabled">
+                                                <input type="text" name="paper" placeholder="A4" value="A4" disabled="disabled"/>
+                                                <em class="icon"></em>
+                                            </label>
+                                        </div>
+                                        <div class="text dir-r">Font:</div>
+                                        <div class="controls col-2 mr10" style="width: 35%">
+                                            <label class="pop-select">
+                                                <input style="display: none;" name="fontFamily" value="Arial Unicode MS">
+                                                <input type="text" name="fontFamilyName" placeholder="Arial" value="Arial" />
+                                                <em class="icon"></em>
+                                            </label>
+                                        </div>
+                                        <!--
+                                        <div class="controls col-2 mr10">
+                                            <label class="pop-select">
+                                                <input type="hidden" name="fontSize" value="0">
+                                                <input type="text" name="fontSizeName" placeholder="Medium">
+                                                <em class="icon"></em>
+                                            </label>
+                                        </div>
+                                        -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Change up Template -->
+                            <div class="print-list">
+                                <div class="ptitle"><strong>Template</strong></div>
+                                <div class="template-con clearfix">
+                                    <ul class="flex justify-c">
+                                        <li class="active" id="standardTemplate">
+                                            <div class="pic"><img th:src="@{/assets/images/standard.jpg}"></div>
+                                            <p>Standard</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- Header -->
+                                <div class="list-term mt10">
+                                    <div class="term-title"><span>Header:</span></div>
+                                    <div class="term-con">
+                                        <div class="header-term clearfix">
+                                            <div class="form-horizontal clearfix">
+                                                <div class="row clearfix col-6">
+                                                    <div class="form-label fl">
+                                                        <label class="check-box">
+                                                            <i class="icon-inp"></i>
+                                                            <input type="checkbox" name="headerName" id="headerName" value="1">
+                                                            <em class="option-text">Name</em>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-controls fl">
+                                                        <input type="text" name="headerNameHtml" class="input-text w130 " placeholder="Name" maxlength="25"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row clearfix col-6">
+                                                    <div class="form-label fl w120">
+                                                        <label class="check-box">
+                                                            <i class="icon-inp"></i>
+                                                            <input type="checkbox" name="headerAddress" id="headerAddress" value="1">
+                                                            <em class="option-text">Address</em>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-controls fl">
+                                                        <input type="text" name="headerAddressHtml" class="input-text w130" placeholder="Address" maxlength="25"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row clearfix col-6">
+                                                    <div class="form-label fl">
+                                                        <label class="check-box">
+                                                            <i class="icon-inp"></i>
+                                                            <input type="checkbox" name="headerPhone" id="headerPhone" value="1">
+                                                            <em class="option-text">Phone</em>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-controls fl">
+                                                        <input type="text" name="headerPhoneHtml" class="input-text w130" placeholder="Phone" maxlength="25"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-horizontal clearfix">
+                                                <div class="row clearfix col-6">
+                                                    <div class="form-label fl">
+                                                        <label class="check-box">
+                                                            <i class="icon-inp"></i>
+                                                            <input type="checkbox" name="taxInvoice" value="1">
+                                                            <em class="option-text">Doc Header</em>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-controls fl">
+                                                        <input type="text" name="taxInvoiceHtml" class="input-text w130 " placeholder="Invoice" maxlength="25"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row clearfix col-6">
+                                                    <div class="form-label fl w120">
+                                                        <label class="check-box">
+                                                            <i class="icon-inp"></i>
+                                                            <input type="checkbox" name="invoiceNumber" value="1">
+                                                            <em class="option-text">Invoice Number</em>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-controls fl">
+                                                        <input type="text" name="invoiceNumberHtml" class="input-text w130" placeholder="Invoice Number" maxlength="25"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row clearfix col-6">
+                                                    <div class="form-label fl">
+                                                        <label class="check-box">
+                                                            <i class="icon-inp"></i>
+                                                            <input type="checkbox" name="orderNumber" value="1">
+                                                            <em class="option-text">Order Number</em>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-controls fl">
+                                                        <input type="text" name="orderNumberHtml" class="input-text w130" placeholder="Order Number" maxlength="25"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row clearfix col-6">
+                                                    <div class="form-label fl w120">
+                                                        <label class="check-box">
+                                                            <i class="icon-inp"></i>
+                                                            <input type="checkbox" name="orderDate" value="1">
+                                                            <em class="option-text">Order Date</em>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-controls fl">
+                                                        <input type="text" name="orderDateHtml" class="input-text w130" placeholder="Order Date" maxlength="25"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row clearfix col-6">
+                                                    <div class="form-label fl">
+                                                        <label class="check-box">
+                                                            <i class="icon-inp"></i>
+                                                            <input type="checkbox" name="invoiceTo" value="1">
+                                                            <em class="option-text">Invoice To</em>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-controls fl">
+                                                        <input type="text" name="invoiceToHtml" class="input-text w130" placeholder="Invoice To" maxlength="25"/>
+                                                    </div>
+                                                </div>
+                                                <div class="row clearfix col-6">
+                                                    <div class="form-label fl w120">
+                                                        <label class="check-box">
+                                                            <i class="icon-inp"></i>
+                                                            <input type="checkbox" name="invoiceDate" value="1">
+                                                            <em class="option-text">Invoice Date</em>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-controls fl">
+                                                        <input type="text" name="invoiceDateHtml" class="input-text w130" placeholder="Invoice Date" maxlength="25"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Body -->
+                                <div class="list-term mt10">
+                                    <div class="term-title"><span>Body:</span></div>
+                                    <div class="term-con">
+                                        <div class="body-term clearfix">
+                                            <div class="form-horizontal">
+                                                <div class="row clearfix">
+                                                    <div class="form-label col-4 tl">
+                                                        <label class="check-box">
+                                                            <i class="icon-inp"></i>
+                                                            <input type="checkbox" name="itemInfoChecked" value="1">
+                                                            <em class="option-text">Show Tip Info</em>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form">
+                                                <!--
+                                                <div class="row clearfix col-4">
+                                                    <label class="check-box">
+                                                        <i class="icon-inp"></i>
+                                                        <input type="checkbox" name="no" value="1">
+                                                        <em class="option-text">No</em>
+                                                    </label>
+                                                </div>
+                                                <div class="row clearfix col-4">
+                                                    <label class="check-box">
+                                                        <i class="icon-inp"></i>
+                                                        <input type="checkbox" name="productName" value="1">
+                                                        <em class="option-text">Product Name</em>
+                                                    </label>
+                                                </div>
+                                                -->
+                                                <div class="row clearfix col-4">
+                                                    <label class="check-box">
+                                                        <i class="icon-inp"></i>
+                                                        <input type="checkbox" name="sellerSKU" value="1">
+                                                        <em class="option-text">Seller SKU</em>
+                                                    </label>
+                                                </div>
+                                                <div class="row clearfix col-4">
+                                                    <label class="check-box">
+                                                        <i class="icon-inp"></i>
+                                                        <input type="checkbox" name="shopSKU" value="1">
+                                                        <em class="option-text">Shop SKU</em>
+                                                    </label>
+                                                </div>
+                                                <div class="row clearfix col-4">
+                                                    <label class="check-box">
+                                                        <i class="icon-inp"></i>
+                                                        <input type="checkbox" name="price" value="1">
+                                                        <em class="option-text">Price</em>
+                                                    </label>
+                                                </div>
+                                                <!--
+                                                <div class="row clearfix col-4">
+                                                    <label class="check-box">
+                                                        <i class="icon-inp"></i>
+                                                        <input type="checkbox" name="paidPrice" value="1">
+                                                        <em class="option-text">Paid Price</em>
+                                                    </label>
+                                                </div>
+                                                -->
+                                                <div class="row clearfix col-4">
+                                                    <label class="check-box">
+                                                        <i class="icon-inp"></i>
+                                                        <input type="checkbox" name="columnWidthSetting" value="1">
+                                                        <em class="option-text">Column Width Setting</em>
+                                                    </label>
+                                                </div>
+                                                <!--
+                                                <div class="row clearfix col-8">
+                                                    <label class="check-box">
+                                                        <i class="icon-inp"></i>
+                                                        <input type="checkbox" name="uppercaseChecked" value="1">
+                                                        <em class="option-text">Column Name Uppercase</em>
+                                                    </label>
+                                                </div>
+                                                -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="term-con" id="columnWidthSettingArea" style="/*display: none;*/">
+                                        <div class="body-term clearfix">
+                                            <div class="box-shadow form cl " style="margin: 10px 20px 0;padding: 10px 0px 10px 28px; width: 450px;">
+                                                <div class="row clearfix col-6 noWidthRow">
+                                                    <div class="form-label fl w74">
+                                                        <label class="">
+                                                            <em class="option-text">No</em>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-controls fl sun-bgdis">
+                                                        <input type="text" name="noWidth" class="input-text w44" placeholder="No" maxlength="25"
+                                                               componentType="auto-numeric" componentConfig="getIntConfig" disabled="disabled"/>
+                                                    </div>
+                                                </div>
+                                                <div class="row clearfix col-6 productNameWidthRow">
+                                                    <div class="form-label fl w74">
+                                                        <label class="">
+                                                            <em class="option-text">Product Name</em>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-controls fl  sun-bgdis">
+                                                        <input type="text" name="productNameWidth" class="input-text w44" placeholder="Product Name" maxlength="25"
+                                                               componentType="auto-numeric" componentConfig="getIntConfig" disabled="disabled"/>
+                                                    </div>
+                                                </div>
+                                                <div class="row clearfix col-6 sellerSKUWidthRow">
+                                                    <div class="form-label fl w74 ">
+                                                        <label class="">
+                                                            <em class="option-text">Seller SKU</em>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-controls fl  sun-bgdis">
+                                                        <input type="text" name="sellerSKUWidth" class="input-text w74" placeholder="Seller SKU" maxlength="25"
+                                                               componentType="auto-numeric" componentConfig="getIntConfig" disabled="disabled"/>
+                                                    </div>
+                                                </div>
+                                                <div class="row clearfix col-6 shopSKUWidthRow">
+                                                    <div class="form-label fl w74">
+                                                        <label class="">
+                                                            <em class="option-text">Shop SKU</em>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-controls fl  sun-bgdis">
+                                                        <input type="text" name="shopSKUWidth" class="input-text w44" placeholder="Shop SKU" maxlength="25"
+                                                               componentType="auto-numeric" componentConfig="getIntConfig" disabled="disabled"/>
+                                                    </div>
+                                                </div>
+                                                <div class="row clearfix col-6 priceWidthRow">
+                                                    <div class="form-label fl w74">
+                                                        <label class="">
+                                                            <em class="option-text">Price</em>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-controls fl  sun-bgdis">
+                                                        <input type="text" name="priceWidth" class="input-text w44" placeholder="Price" maxlength="25"
+                                                               componentType="auto-numeric" componentConfig="getIntConfig" disabled="disabled"/>
+                                                    </div>
+                                                </div>
+                                                <div class="row clearfix col-6 paidPriceWidthRow">
+                                                    <div class="form-label fl w74">
+                                                        <label class="">
+                                                            <em class="option-text">Paid Price</em>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-controls fl  sun-bgdis">
+                                                        <input type="text" name="paidPriceWidth" class="input-text w44" placeholder="Paid Price" maxlength="25"
+                                                               componentType="auto-numeric" componentConfig="getIntConfig" disabled="disabled"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Footer: -->
+                                <div class="list-term mt10">
+                                    <div class="term-title"><span>Footer:</span></div>
+                                    <div class="term-con">
+                                        <div class="footer-term  clearfix">
+                                            <div class="form-horizontal">
+                                                <div class="row clearfix">
+                                                    <div class="form-label fl tl">
+                                                        <label class="check-box">
+                                                            <i class="icon-inp"></i>
+                                                            <input type="checkbox" name="subtotalChecked" value="1">
+                                                            <em class="option-text">Subtotal</em>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-label fl tl">
+                                                        <label class="check-box">
+                                                            <i class="icon-inp"></i>
+                                                            <input type="checkbox" name="voucherAppliedChecked" value="1"/>
+                                                            <em class="option-text">Voucher applied</em>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-label fl tl pl30">
+                                                        <label class="check-box">
+                                                            <i class="icon-inp"></i>
+                                                            <input type="checkbox" name="totalChecked" value="1"/>
+                                                            <em class="option-text">Total</em>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-label fl tl">
+                                                        <label class="check-box">
+                                                            <i class="icon-inp"></i>
+                                                            <input type="checkbox" name="shippingChecked" value="1">
+                                                            <em class="option-text">Shipping</em>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-label fl tl">
+                                                        <label class="check-box">
+                                                            <i class="icon-inp"></i>
+                                                            <input type="checkbox" name="netPaidChecked" value="1"/>
+                                                            <em class="option-text">Net paid</em>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="row clearfix pt10">
+                                                    <div class="form-label fl tl">
+                                                        <label class="check-box">
+                                                            <i class="icon-inp"></i>
+                                                            <input type="checkbox" name="remarkChecked" value="1"/>
+                                                            <em class="option-text">Remark</em>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-controls fl">
+                                                        <!--<input type="text" class="input-text" name="remarkCheckedHtml" placeholder="Remark" maxlength="25"/>-->
+                                                        <textarea rows="4" width="300px;" class="input-text" name="remarkCheckedHtml" placeholder="Remark"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="print-right col-6">
+                    <div class="print-rcont" style="padding: 0px !important;">
+                        <div class="ptitle"><strong>Preview</strong></div>
+
+
+                        <div class="standardTemplate includeTemplate" style="height: 888px;background-color: #fff; padding: 25px 13px 10px 25px; ">
+                            <iframe name="customPrintModel" id="customPrintModel" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto" width="686px" height="100%" style="margin: 0 auto;"></iframe>
+                        </div>
+
+                        <div class="print-rmore" style="display: none;background: rgb(242,245,247);">
+                            <div class="more tr printListMore"><a>More<i class="ml10"></i></a></div>
+                            <div class="template-con clearfix">
+                                <ul class="flex">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt20 tc mb10">
+                <!--
+                <a id="addPrintConfig" class="btn btn-info btn-lg" style="width: 70px">Add</a>
+                -->
+                <a id="savePrintConfig" class="btn btn-info btn-lg" style="width: 70px">Save</a>
+                <a id="cancelPrintConfig" class="btn btn-default btn-lg ml10">Cancel</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

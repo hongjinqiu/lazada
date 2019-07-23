@@ -1,0 +1,21 @@
+.auto-comboBox-dropDown {
+    font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #666;
+    border: solid 1px #dedede;
+}
+.auto-comboBox-dataPanel-table > tbody > tr:hover {
+    background-color: #dcdcdc;
+}
+
+.auto-comboBox-dataPanel-table > thead > tr > th,
+.auto-comboBox-dataPanel-table > thead > tr > td {
+    font-size: 12px;
+}
+
+.auto-comboBox-dataPanel-table > tbody > tr.selected {
+    background-color: rgb(253, 193, 68);
+}
+
+.auto-comboBox-loadingbar-img {
+    background: url(images/loadingbar2-18x18.GIF) no-repeat;
+}

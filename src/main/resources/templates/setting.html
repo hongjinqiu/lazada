@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>设置</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11;IE=10;IE=9;IE=8;IE=7;IE=EDGE">
+    <link rel="stylesheet" type="text/css" th:href="@{/js/lib/jquery-easyui-1.6.7/themes/default/easyui.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/js/lib/jquery-easyui-1.6.7/themes/icon.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/base.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/style.css}">
+    <!--<script src="assets/js/jquery-1.11.1.min.js"></script>-->
+    <script type="text/javascript" th:src="@{/js/lib/v1.11.0-rc1-ext0.1/jquery.all.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/lib/jquery-easyui-1.6.7/jquery.easyui.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/lib/1.6.0-ext0.1/underscore.js}"></script>
+    <script type="text/javascript" th:src="@{/js/lib/1.6.0-ext0.1/underscore-application-ext.js}"></script>
+    <script type="text/javascript" th:src="@{/assets/js/waves.js}"></script>
+    <script type="text/javascript" th:src="@{/js/common.js}"></script>
+    <script type="text/javascript" th:src="@{/js/commonDialog.js}"></script>
+    <script type="text/javascript" th:src="@{/js/setting.js?20190213_1207}"></script>
+    <style type="text/css">
+        html,
+        body {
+            height: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+    <script type="text/javascript">
+        var contextPath='[[${#httpServletRequest.getContextPath()}]]';
+    </script>
+</head>
+
+<body>
+<div class="page-center">
+    <!-- header -->
+    <div class="header" th:insert="~{navigation :: headBar}"></div>
+    <!-- page-body -->
+    <div class="wrapper">
+        <div class="main">
+            <!-- 企业列表 -->
+            <div class="comt-top clearfix">
+                <a class="comt-title" th:href="@{/}">&nbsp;Index</a>
+                &nbsp;
+                &gt;&nbsp;Print Template
+            </div>
+            <div class="comt-tip comt-content">
+                <div class="top-search has-border clearfix mb10">
+                    <div class="fl">
+                    </div>
+                    <div class="fr">
+                        <a href="javascript:gotoPrintTemplateAdd()" class="btn btn-primary waves-effect waves-light">Add</a>
+                        <!--
+                        <a href="javascript:stopTaxDeclareStatus()" class="btn btn-primary waves-effect waves-light">停止</a>
+                        <a href="javascript:startTaxDeclareStatus()" class="btn btn-primary waves-effect waves-light" title="不勾选代表全部">启动报税</a>
+                        -->
+                    </div>
+                </div>
+                <div class="con-tab">
+                    <table id="dg"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

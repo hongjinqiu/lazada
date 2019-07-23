@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div class="main  clearfix" th:fragment="headBar">
+        <div class="header-left fl">
+            <a th:href="@{/}" class="header-logo" style="font-size: 18px;color:  white">
+                <!--<img class="logo-img" th:src="@{/assets/images/logo.png}" alt="">-->
+                Simple Invoice Print
+            </a>
+        </div>
+        <div class="header-right fr">
+            <ul class="clearfix" th:fragment="menuBar">
+                <li class="avatar">
+                    <a th:href="@{/}" class="headerNameCls">
+                        <span th:text="${session.account}"></span>
+                    </a>
+                    <a th:href="@{/}">
+                        <img th:src="@{/assets/images/all/card-text.png}" width="22" height="22">
+                    </a>
+                </li>
+                <li>
+                    <a class="handle" th:href="@{/setting/setting.htm}"><i class="icon-font-set"></i></a>
+                    <div class="dropdown-tip">
+                        <i class="arrow"></i>
+                        <p><span><a th:href="@{/setting/setting.htm}">Setting</a></span></p>
+                    </div>
+                </li>
+                <li>
+                    <a class="handle" href="javascript:exitSystem()"><i class="icon-font-quit"></i></a>
+                    <div class="dropdown-tip">
+                        <i class="arrow"></i>
+                        <p><span><a href="javascript:exitSystem()">Exit</a></span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

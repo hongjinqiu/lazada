@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>Lazada Invoice Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11;IE=10;IE=9;IE=8;IE=7;IE=EDGE">
+    <!--
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/base.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/style.css}">
+    -->
+    <!--<script src="assets/js/jquery-1.11.1.min.js"></script>-->
+    <script type="text/javascript" th:src="@{/js/lib/v1.11.0-rc1-ext0.1/jquery.all.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/lib/jQueryUtils/1.1.0/jquery-number-utils.js}"></script>
+    <!--<script type="text/javascript" th:src="@{/js/lib/jQueryUtils/1.1.0/jquery-number-utils.js}"></script>-->
+
+    <script type="text/javascript" th:src="@{/js/jsonix/Jsonix-all.js?ver=20190213_1207}"></script>
+    <script type="text/javascript" th:src="@{/js/printmeta/printmeta.js?ver=20190213_1207}"></script>
+    <script type="text/javascript" th:src="@{/js/printmeta/printmetaEval.js?ver=20190213_1207}"></script>
+    <script type="text/javascript" th:src="@{/js/printmeta/interpreter.js?ver=20190213_1207}"></script>
+
+    <script type="text/javascript" th:src="@{/js/printconfig/lazada.js?ver=20190213_1207}"></script>
+    <style type="text/css">
+        html,body,table,div,p {
+            margin: 0px;
+            padding: 0px;
+        }
+        table, th, td {
+            border-collapse: collapse;
+        }
+        html,
+        body {
+            height: 100%;
+            box-sizing: border-box;
+            width: 685px;
+            height: 840px;
+            overflow: hidden;
+            background-color: white;
+            /*
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            */
+        }
+    </style>
+    <script type="text/javascript">
+        var contextPath='[[${#httpServletRequest.getContextPath()}]]';
+        var pageObj = pageObj || {};
+        pageObj = $.extend(pageObj, {
+            /*
+            printConfigTemplate: {
+                fontFamily: "Arial"
+                ,fontSize: "0"
+            },
+            */
+            isCustomerConfig: 1,
+            order: {
+                "voucher": "0.00",
+                "customer_first_name": "First Name",
+                "order_number": "300034416",
+                "created_at": "2014-10-15 18:36:05 +0800",
+                "created_at_show": "15 Oct 2014",// 程序添加
+                "invoice_date_show": "04 Jue 2019",// 程序添加
+                "currencyShow": "SGB",// 程序添加
+                "paid_price_sum": "2.00",// 程序添加
+                "paid_price_voucher_sum": "2.00",// 程序添加
+                "voucher_code": "3432",
+                "gift_option": "0",
+                "shipping_fee": "0.00",
+                "branch_number": "2222",
+                "tax_code": "1234",
+                "customer_last_name": "last_name",
+                "updated_at": "2014-10-15 18:36:05 +0800",
+                "promised_shipping_times": "2017-03-24 16:09:22",
+                "items_count": "1",
+                "price": "99.00",
+                "delivery_info": "1",
+                "statuses": "delivered",
+                "address_billing": {
+                    "country": "Singapore",
+                    "address3": "address3",
+                    "address2": "address2",
+                    "city": "Singapore-Central",
+                    "phone": "81***8",
+                    "address1": "22 leonie hill road, #13-01",
+                    "post_code": "239195",
+                    "phone2": "24***22",
+                    "last_name": "Last Name",
+                    "address5": "address5",
+                    "address4": "address4",
+                    "first_name": "First Name"
+                },
+                "national_registration_number": "1123",
+                "extra_attributes": "{\"TaxInvoiceRequested\":\"true\"}",
+                "order_id": "16090",
+                "gift_message": "Gift",
+                "payment_method": "COD",
+                "remarks": "remarks",
+                "address_shipping": {
+                    "country": "Singapore",
+                    "address3": "address3",
+                    "address2": "address2",
+                    "city": "Singapore-Central",
+                    "phone": "94236248",
+                    "address1": "318 tanglin road, phoenix park, #01-59",
+                    "post_code": "247979",
+                    "phone2": "1******2",
+                    "last_name": "Last Name",
+                    "address5": "1******2",
+                    "address4": "address4",
+                    "first_name": "First Name"
+                },
+                itemLi: [
+                    {
+                        "paid_price": "99.00",
+                        "product_main_image": "http://th-live-02.slatic.net/p/3/jianyue-7699-09550735-ccd244666871f12a523c77d68cd76d74-catalog.jpg",
+                        "tax_amount": "6.48",
+                        "voucher_platform": "0.00",
+                        "reason": "reason",
+                        "product_detail_url": "http://www.lazada.co.th/535590.html",
+                        "promised_shipping_time": "2014-10-15 19:12:15 +0800",
+                        "purchase_order_id": "3454",
+                        "voucher_seller": "0.00",
+                        "shipping_type": "Dropshipping",
+                        "created_at": "2014-10-15 19:12:15 +0800",
+                        "voucher_code": "X3453",
+                        "package_id": "345",
+                        "variation": "1",
+                        "wallet_credits": "0.00",
+                        "updated_at": "2014-10-15 19:12:15 +0800",
+                        "purchase_order_number": "345345",
+                        "currency": "SGD",
+                        "shipping_provider_type": "standard",
+                        "sku": "BRSD#02",
+                        "invoice_number": "1342",
+                        "cancel_return_initiator": "cancellation-customer",
+                        "shop_sku": "BE494HLAAUE3SGAMZ-39898",
+                        "is_digital": "0",
+                        "item_price": "99.00",
+                        "shipping_service_cost": "0",
+                        "tracking_code_pre": "23534",
+                        "tracking_code": "456",
+                        "shipping_amount": "0.00",
+                        "order_item_id": "98108",
+                        "reason_detail": "reason detail",
+                        "shop_id": "dawen dp",
+                        "return_status": "1",
+                        "name": "Bean Rester Dooby Red",
+                        "shipment_provider": "LEL",
+                        "voucher_amount": "0.00",
+                        "digital_delivery_info": "delivery",
+                        "extra_attributes": "null",
+                        "order_id": "31202",
+                        "status": "canceled"
+                    },
+                    {
+                        "paid_price": "99.00",
+                        "product_main_image": "http://th-live-02.slatic.net/p/3/jianyue-7699-09550735-ccd244666871f12a523c77d68cd76d74-catalog.jpg",
+                        "tax_amount": "6.48",
+                        "voucher_platform": "0.00",
+                        "reason": "reason",
+                        "product_detail_url": "http://www.lazada.co.th/535590.html",
+                        "promised_shipping_time": "2014-10-15 19:12:15 +0800",
+                        "purchase_order_id": "3454",
+                        "voucher_seller": "0.00",
+                        "shipping_type": "Dropshipping",
+                        "created_at": "2014-10-15 19:12:15 +0800",
+                        "voucher_code": "X3453",
+                        "package_id": "345",
+                        "variation": "1",
+                        "wallet_credits": "0.00",
+                        "updated_at": "2014-10-15 19:12:15 +0800",
+                        "purchase_order_number": "345345",
+                        "currency": "SGD",
+                        "shipping_provider_type": "standard",
+                        "sku": "BRSD#02",
+                        "invoice_number": "1342",
+                        "cancel_return_initiator": "cancellation-customer",
+                        "shop_sku": "BE494HLAAUE3SGAMZ-39898",
+                        "is_digital": "0",
+                        "item_price": "99.00",
+                        "shipping_service_cost": "0",
+                        "tracking_code_pre": "23534",
+                        "tracking_code": "456",
+                        "shipping_amount": "0.00",
+                        "order_item_id": "98108",
+                        "reason_detail": "reason detail",
+                        "shop_id": "dawen dp",
+                        "return_status": "1",
+                        "name": "Bean Rester Dooby Red",
+                        "shipment_provider": "LEL",
+                        "voucher_amount": "0.00",
+                        "digital_delivery_info": "delivery",
+                        "extra_attributes": "null",
+                        "order_id": "31202",
+                        "status": "canceled"
+                    }
+                ]
+            }
+            ,xmlText: '[(${xmlText})]'
+        });
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

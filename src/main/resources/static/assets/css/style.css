@@ -1,0 +1,41 @@
+@charset "utf-8";
+.comt-top .comt-title{line-height: 30px}
+.comt-tip .no-data-area{position:absolute;left:50%;top:50%;margin:-10px 0 0 -10px;display:inline-block;font-size:16px;color:#999;}
+.comt-tip .no-data-area:before,.comt-tip .no-data-area:after{content:"";position:absolute;top:50%;left:-40px;width:30px;border-top:1px solid #ddd;}
+.comt-tip .no-data-area:after{left:auto;right:-40px;}
+
+.guide-mask{position:fixed;top:0;right:0;bottom:0;left:0;z-index:1040;display:none;background-color:rgba(0,0,0,.5);}
+
+.guide-mask .main{height:100%}
+.guide-mask .guide-set{position:absolute;right:58px;top:12px;}
+.guide-mask .guide-set .handle{display:inline-block;padding:8px;border-radius:50%;line-height:18px;background:#287eff;height:18px;border:2px solid #ccc;}
+.guide-mask .guide-set .handle .icon-font-set{font-size:18px;color:#fff;}
+.guide-mask .guide-set .handle .icon-font-set:before{content:"\e60f";}
+.guide-mask .guide-set .line-1{position:absolute;left:18px;top:37px;width:2px;height:88px;background:#fff;}
+.guide-mask .guide-set .line-2{position:absolute;right:18px;top:123px;width:56px;height:2px;background:#fff;}
+.guide-mask .guide-set .text{position:absolute;right:73px;top:85px;background:#fff;color:#191919;font-size:15px;width:190px;padding:25px;border-radius:10px;}
+.guide-mask .btn{position:absolute;padding:0;top:50%;left:50%;width:150px;height:50px;text-align:center;line-height:50px;font-size:16px;margin:-25px 0 0 -75px;border-radius: 25px;}
+.comt-title .icon-font-refresh{font-size: 15px;color: #999}
+.icon-font-refresh:before{content:"\e654";}
+
+ /*add ybliu 2019-01-15*/
+.messager-case2 .dialog-button{
+    text-align: center;
+    padding: 8px;
+}
+.messager-case2 .dialog-button .l-btn {
+    color: #fff;
+    background: #287eff;
+    border-color: #287eff;
+    padding: 4px 12px;
+    font-size: 14px;
+    height: auto;
+    line-height: 1.42857143;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.messager-case2 .l-btn-text{
+    line-height: 1.42857143;}
+.messager-case2 .dialog-button .l-btn+.l-btn{    color: #666;
+    background: #fff;    border: 1px solid #e5e5e5;}

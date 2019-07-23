@@ -1,0 +1,56 @@
+INSERT INTO `sys_print_template` (`id`, `template_name`, `create_user`, `is_system`, `create_time`, `update_time`) VALUES ('1', 'system_standard', 'admin', '1', '20190614182611', '20190614182611');
+
+
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, $0, $1, 'admin', '20190616104300', '20190616104300');
+
+
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'templateName', '', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'templateId', '', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'roundingFlag', '', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'templateType', '', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'fileName', '', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'paper', 'A4', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'fontFamily', 'Arial Unicode MS', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'fontFamilyName', 'Arial', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'headerName', '1', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'headerNameHtml', '', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'headerPhone', '1', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'headerPhoneHtml', '', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'headerAddress', '1', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'headerAddressHtml', '', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'taxInvoice', '1', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'taxInvoiceHtml', '', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'invoiceNumber', '1', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'invoiceNumberHtml', '', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'orderNumber', '1', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'orderNumberHtml', '', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'orderDate', '1', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'orderDateHtml', '', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'invoiceTo', '1', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'invoiceToHtml', '', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'invoiceDate', '1', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'invoiceDateHtml', '', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'itemInfoChecked', '1', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'no', '1', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'productName', '1', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'sellerSKU', '1', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'shopSKU', '1', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'price', '1', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'paidPrice', '1', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'columnWidthSetting', '1', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'noWidth', '4', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'productNameWidth', '38', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'sellerSKUWidth', '18', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'shopSKUWidth', '24', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'priceWidth', '8', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'paidPriceWidth', '8', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'subtotalChecked', '1', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'voucherAppliedChecked', '1', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'totalChecked', '1', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'shippingChecked', '1', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'netPaidChecked', '1', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'remarkChecked', '1', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'remarkCheckedHtml', '', 'admin', '20190616104300', '20190616104300');
+INSERT INTO `sys_print_config` (`id`, `template_id`, `config_item`, `config_value`, `create_user`, `create_time`, `update_time`) VALUES (0, 1, 'fileName', 'standard', 'admin', '20190616104300', '20190616104300');
