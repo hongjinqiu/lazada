@@ -18,17 +18,7 @@ import java.sql.Statement;
 public class App implements CommandLineRunner {
 
     public static void main(String[] args) throws Exception {
-//        SpringApplication.run(App.class, args);
-        {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/lazada?useUnicode=true&characterEncoding=UTF8", "root", "3564764");
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from sys_print_template");
-            while (rs.next()) {
-                String templateName = rs.getString("template_name");
-                System.out.println("templateName is:" + templateName);
-            }
-        }
+        SpringApplication.run(App.class, args);
     }
 
     @Override
