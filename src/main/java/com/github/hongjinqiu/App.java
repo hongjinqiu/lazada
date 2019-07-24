@@ -19,9 +19,7 @@ import java.sql.Statement;
 public class App implements CommandLineRunner {
 
     public static void main(String[] args) throws Exception {
-        new PrintmetaInterpreterService();
-        System.out.println("init finish");
-//        SpringApplication.run(App.class, args);
+        SpringApplication.run(App.class, args);
     }
 
     @Override
