@@ -77,9 +77,16 @@
             <artifactId>json</artifactId>
             <version>20160810</version>
         </dependency>
+        <!--
         <dependency>
             <groupId>com.hongjinqiu</groupId>
             <artifactId>print_meta</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        -->
+        <dependency>
+            <groupId>com.hongjinqiu</groupId>
+            <artifactId>print_meta-jar-with-dependencies</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <!-- 添加 c3p0 数据源 -->
