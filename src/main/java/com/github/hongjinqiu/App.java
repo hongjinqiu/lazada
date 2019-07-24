@@ -1,6 +1,7 @@
 package com.github.hongjinqiu;
 
 import com.github.hongjinqiu.config.YmlConfig;
+import com.hongjinqiu.pdfservice.PrintmetaInterpreterService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,7 +19,9 @@ import java.sql.Statement;
 public class App implements CommandLineRunner {
 
     public static void main(String[] args) throws Exception {
-        SpringApplication.run(App.class, args);
+        new PrintmetaInterpreterService();
+        System.out.println("init finish");
+//        SpringApplication.run(App.class, args);
     }
 
     @Override
