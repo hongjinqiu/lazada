@@ -22,6 +22,9 @@
 
     <script type="text/javascript">
         var contextPath='[[${#httpServletRequest.getContextPath()}]]';
+        var App = {
+            staticContextPath: '[[${#httpServletRequest.getContextPath()}]]'
+        }
     </script>
     <!--<script src="assets/js/jquery-1.11.1.min.js"></script>-->
     <script type="text/javascript" th:src="@{/js/lib/v1.11.0-rc1-ext0.1/jquery.all.min.js}"></script>
