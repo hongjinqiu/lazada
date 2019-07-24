@@ -4,7 +4,7 @@
  	描述: 公共样式 
 */
 @charset "utf-8";
-@import "http://at.alicdn.com/t/font_926928_pu3d6ckvhzs.css";
+/*@import "http://at.alicdn.com/t/font_926928_pu3d6ckvhzs.css";*/
 * html {
  filter: expression(document.execCommand("BackgroundImageCache", false, true));
 	-ms-text-size-adjust: 100%;/* 2 */
